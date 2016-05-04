@@ -225,3 +225,69 @@ AS BEGIN
     CategoryName =			@CategoryName
   WHERE CategoryID = @CategoryID
 END
+GO
+CREATE PROC spGetGameByCategoryID
+  (
+    @CategoryID     INT = NULL
+  )
+AS BEGIN
+  SELECT * FROM tbGames
+  WHERE CategoryID = ISNULL(@CategoryID, CategoryID)
+END
+GO
+CREATE PROC spGetGameByID
+  (
+    @GameID      INT = NULL
+  )
+AS BEGIN
+  SELECT * FROM tbGames
+  WHERE GameID = ISNULL(@GameID, GameID)
+END
+GO
+CREATE PROC spInsertGame
+  (
+    @GameName      VARCHAR(MAX),
+    @GameImage     VARCHAR(MAX),
+    @GameRating    VARCHAR(MAX),
+    @CategoryID    INT,
+    @ConsoleID     INT
+  )
+AS BEGIN
+  IF EXISTS (SELECT * FROM tbGames WHERE GameName = @GameName)
+    BEGIN
+
+    END
+  ELSE
+    BEGIN
+      INSERT INTO tbGames (GameName, GameImage, GameRating, CategoryID, ConsoleID)
+      VALUES				      (@GameName,ISNULL(@GameImage, 'NoImages.jpg'), @CategoryID, @ConsoleID)
+      SELECT SCOPE_IDENTITY() AS 'NewGameID'
+    END
+END
+GO
+CREATE PROC spDeleteGame
+  (
+    @GameID     INT
+  )
+AS BEGIN
+  DELETE FROM tbGames WHERE GameID = @GameID
+END
+GO
+CREATE PROC spUpdateGame
+  (
+    @GameID        INT,
+    @GameName      VARCHAR(MAX),
+    @GameImage     VARCHAR(MAX),
+    @GameRating    VARCHAR(MAX),
+    @CategoryID    INT,
+    @ConsoleID     INT
+  )
+AS BEGIN
+  UPDATE tbGames SET
+    GameName =		@GameName,
+    GameImage =   ISNULL(@GameImage, GameImage),
+    GameRating=   @GameRating,
+    CategoryID =	@CategoryID,
+    ConsoleID=    @ConsoleID
+  WHERE GameID =  @GameID
+END
