@@ -43,6 +43,26 @@ CREATE TABLE tbGames
 
 --NEED SOME INSERTS HERE FOR TESTING
 
+
+INSERT INTO  tbConsole(ConsoleName) VALUES
+  ('PSP'),
+  ('PC'),
+  ('XBOX'),
+  ('PS3'),
+  ('PS4'),
+  ('WII')
+INSERT INTO tbCategory(CategoryName) VALUES
+  ('Action'),
+  ('Adventure & RPG (Role Playing Game)'),
+  ('Arcade'),
+  ('Casino'),
+  ('Family'),
+  ('Puzzle'),
+  ('Sports'),
+  ('strategy')
+
+
+
 GO
 CREATE PROC spLogin
   (
