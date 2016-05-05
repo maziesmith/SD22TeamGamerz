@@ -43,6 +43,22 @@ CREATE TABLE tbGames
 
 --NEED SOME INSERTS HERE FOR TESTING
 
+INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,UserName,Password,Email,AccessLevel)  VALUES
+  ('Andrew', 'Leake', '69 Loli Lane','Winnipeg','R2N 4N5','1 204 996 1783',
+   'Grunt','1234','Andrew.Leake@Robertsoncollege.net', 1),
+  ('Christian', 'Earl', '12 Filipino Avenue','Winnipeg','R6P 0Y5','1 204 555 5555',
+   'Earl','1234','Christian.Earl@Robertsoncollege.net', 1),
+  ('Jizka', 'Clement', '420 Vapesmoke road','Vape Nation','R7F 2K9','1 204 555 5999',
+   'Jessy','1234','Jessy.Clement@Robertsoncollege.net', 1),
+  ('Christian', 'Kessler', '11 Filipino Avenue','Winnipeg','R6P 0Y5','1 204 999 5555',
+   'Kessler','1234','Christian.Kessler@Robertsoncollege.net', 1),
+
+  ('John', 'Doe', '123 Home Street','New York','55416','1555 555 5555',
+   'JonDoe','1234','Jon.Doe@Robertsoncollege.net', 0),
+  ('Jane', 'Doe', '123 Home Street','New York','55416','1555 555 5555',
+   'JaneDoe','1234','Jane.Doe@Robertsoncollege.net', 0),
+  ('Naruto', 'Uzumaki', '123 Konoha Street','Konoha','56453','1555 555 5555',
+   'JonDoe','1234','IWannaBeTheHokage@Hokage.com', 0)
 
 INSERT INTO  tbConsole(ConsoleName) VALUES
   ('PSP'),
@@ -254,4 +270,70 @@ AS BEGIN
   UPDATE tbCategory SET
     CategoryName =			@CategoryName
   WHERE CategoryID = @CategoryID
+END
+GO
+CREATE PROC spGetGameByCategoryID
+  (
+    @CategoryID     INT = NULL
+  )
+AS BEGIN
+  SELECT * FROM tbGames
+  WHERE CategoryID = ISNULL(@CategoryID, CategoryID)
+END
+GO
+CREATE PROC spGetGameByID
+  (
+    @GameID      INT = NULL
+  )
+AS BEGIN
+  SELECT * FROM tbGames
+  WHERE GameID = ISNULL(@GameID, GameID)
+END
+GO
+CREATE PROC spInsertGame
+  (
+    @GameName      VARCHAR(MAX),
+    @GameImage     VARCHAR(MAX),
+    @GameRating    VARCHAR(MAX),
+    @CategoryID    INT,
+    @ConsoleID     INT
+  )
+AS BEGIN
+  IF EXISTS (SELECT * FROM tbGames WHERE GameName = @GameName)
+    BEGIN
+
+    END
+  ELSE
+    BEGIN
+      INSERT INTO tbGames (GameName, GameImage, GameRating, CategoryID, ConsoleID)
+      VALUES				      (@GameName,ISNULL(@GameImage, 'NoImages.jpg'),@GameRating, @CategoryID, @ConsoleID)
+      SELECT SCOPE_IDENTITY() AS 'NewGameID'
+    END
+END
+GO
+CREATE PROC spDeleteGame
+  (
+    @GameID     INT
+  )
+AS BEGIN
+  DELETE FROM tbGames WHERE GameID = @GameID
+END
+GO
+CREATE PROC spUpdateGame
+  (
+    @GameID        INT,
+    @GameName      VARCHAR(MAX),
+    @GameImage     VARCHAR(MAX),
+    @GameRating    VARCHAR(MAX),
+    @CategoryID    INT,
+    @ConsoleID     INT
+  )
+AS BEGIN
+  UPDATE tbGames SET
+    GameName =		@GameName,
+    GameImage =   ISNULL(@GameImage, GameImage),
+    GameRating=   @GameRating,
+    CategoryID =	@CategoryID,
+    ConsoleID=    @ConsoleID
+  WHERE GameID =  @GameID
 END
