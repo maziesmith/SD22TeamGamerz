@@ -85,47 +85,47 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('Furious Space','FURIOUSSPACE.jpg',4,1,5),
   ('Raider took my DOG','raderstookmydog.jpg',2,1,2),
   ('Super Battle City','SUPERBATTLECITY.jpg',2,1,1),
-  ('Wild WasteLand','WildWasteLand.jpeg',5,1,4)
+  ('Wild WasteLand','WildWasteLand.jpeg',5,1,4),
   ---- insert for Adventure & RPG category
-  --('Adventure Story','AdventureStory.jpg',2,3),
-  --('Cabal Online','CabalOnline.jpg',2,5),
-  --('Cloudstone','Cloudstone.png',2,5),
-  --('Monster Den Chronicles','MonsterDenChronicles.png',2,2),
-  --('Sonny 2 ','Sonny2.jpg',2,1),
-  --('The Last Stand','thelaststand.png',2,1),
-  --('Warlors Heroes','WarlordsHeroes.jpg',2,5),
-  ---- insert for Arcade
-  --('Death vs Monstars','deathvsmonster.jpg',3,2),
-  --('dodge','dodge.jpg',3,6),
-  --('Medieval Shark','medievalshark.jpg',3,5),
-  --('The Lance','thelance.jpg',3,5),
-  --('The World Hardest Game','theworldhardestgame.jpg',3,2),
-  ----insert for Casino
-  --('Classic video Poker','classicvideopoker.jpg',4,6),
-  --('Diamond Royale','diamondroyale.jpeg',4,3),
-  --('GSN chachingco BINGO','gsnbingo.jpg',4,2),
-  --('Jackpot Boogie Slot','jackpotboogieslot.jpg',4,5),
-  --('Savanna Slots','savannaslots.jpg',4,2),
-  --('Wheel Of Fortune','wheeloffortune.jpg',4,1),
-  ----insert for Family
-  --('Family Feud','familyfeud.jpg',5,1),
-  --('Family Restaurant','familyrestaurant.jpg',5,2),
-  --('Family Rush','familyrush.jpg',5,2),
-  --('Finders Keepers','finderkeepers.jpg',5,5),
-  --('Super Granny 4','supergranny4.jpg',5,1),
-  --('Turtix','turtix.jpg',5,6),
-  ----insert for Puzzles
-  --('Bubblez','bubblez.jpg',6,1),
-  --('Cubis Gold','cubisgold.jpg',6,2),
-  --('Farm Scapes','farmcscapes.jpg',6,4),
-  --('PatchWorkz™','patchworkz.jpg',6,2),
-  --('Scara Terra Angelic Night','sacraterraangelicnight.jpg',6,1),
-  --('The Rise Of Atlantis','theriseofatlantis.jpg',6,6),
-  ----insert for Sports
-  --('FIFA 2k16','fifa2k16.jpg',7,6),
-  --('Lets Play Baseball','lpb.jpg',7,2),
-  --('NBA 2k16','nba2k16.jpg',7,2),
-  --('Soccer Man','SoccerMan.png',7,1)
+  ('Adventure Story','AdventureStory.jpg',1,2,3),
+  ('Cabal Online','CabalOnline.jpg',2,2,5),
+  ('Cloudstone','Cloudstone.png',3,2,5),
+  ('Monster Den Chronicles','MonsterDenChronicles.png',3,2,2),
+  ('Sonny 2 ','Sonny2.jpg',2,2,1),
+  ('The Last Stand','thelaststand.png',4,2,1),
+  ('Warlors Heroes','WarlordsHeroes.jpg',5,2,5),
+  -- insert for Arcade
+  ('Death vs Monstars','deathvsmonster.jpg',2,3,2),
+  ('dodge','dodge.jpg',1,3,6),
+  ('Medieval Shark','medievalshark.jpg',2,3,5),
+  ('The Lance','thelance.jpg',3,5),
+  ('The World Hardest Game','theworldhardestgame.jpg',1,3,2),
+  --insert for Casino
+  ('Classic video Poker','classicvideopoker.jpg',4,4,6),
+  ('Diamond Royale','diamondroyale.jpeg',4,4,3),
+  ('GSN chachingco BINGO','gsnbingo.jpg',2,4,2),
+  ('Jackpot Boogie Slot','jackpotboogieslot.jpg',1,4,5),
+  ('Savanna Slots','savannaslots.jpg',4,4,2),
+  ('Wheel Of Fortune','wheeloffortune.jpg',3,4,1),
+  --insert for Family
+  ('Family Feud','familyfeud.jpg',2,5,1),
+  ('Family Restaurant','familyrestaurant.jpg',2,5,2),
+  ('Family Rush','familyrush.jpg',1,5,2),
+  ('Finders Keepers','finderkeepers.jpg',1,5,5),
+  ('Super Granny 4','supergranny4.jpg',3,5,1),
+  ('Turtix','turtix.jpg',2,5,6),
+  --insert for Puzzles
+  ('Bubblez','bubblez.jpg',1,6,1),
+  ('Cubis Gold','cubisgold.jpg',4,6,2),
+  ('Farm Scapes','farmcscapes.jpg',5,6,4),
+  ('PatchWorkz™','patchworkz.jpg',2,6,2),
+  ('Scara Terra Angelic Night','sacraterraangelicnight.jpg',1,6,1),
+  ('The Rise Of Atlantis','theriseofatlantis.jpg',3,6,6),
+  --insert for Sports
+  ('FIFA 2k16','fifa2k16.jpg',1,7,6),
+  ('Lets Play Baseball','lpb.jpg',1,7,2),
+  ('NBA 2k16','nba2k16.jpg',2,7,2),
+  ('Soccer Man','SoccerMan.png',1,7,1)
 GO
 CREATE PROC spLogin
   (
