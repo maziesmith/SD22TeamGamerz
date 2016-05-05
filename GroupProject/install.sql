@@ -87,7 +87,7 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('Super Battle City','SUPERBATTLECITY.jpg','2',1,1),
   ('Wild WasteLand','WildWasteLand.jpeg','5',1,4)
   -- insert for Adventure & RPG category
- --
+
 
 GO
 CREATE PROC spLogin
