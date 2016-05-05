@@ -36,7 +36,7 @@ CREATE TABLE tbGames
     GameID        INT IDENTITY (1,1) PRIMARY KEY,
     GameName      VARCHAR(MAX),
     GameImage     VARCHAR(MAX),
-    GameRating    VARCHAR(MAX),
+    GameRating    VARCHAR(MAX),--1 to 5
     CategoryID    INT FOREIGN KEY REFERENCES tbCategory(CategoryID),
     ConsoleID     INT FOREIGN KEY REFERENCES tbConsole(ConsoleID)
   )
@@ -60,7 +60,17 @@ INSERT INTO tbCategory(CategoryName) VALUES
   ('Puzzle'),
   ('Sports'),
   ('strategy')
-
+INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
+  -- insert for action category
+  ('ARC of Templar','ARCOFTEMPLAR.jpg','3',1,2),
+  ('Bear in super Action','BEARINSUPERACTION.jpg','2',1,2),
+  ('Crest Breakout 2','CRESTBREAKOUT2.jpg','4',1,4),
+  ('Earth Taken 3','EarthTaken3.jpg','2',1,2),
+  ('Furious Space','FURIOUSSPACE.jpg','4',1,5),
+  ('Raider took my DOG','raderstookmydog.jpg','2',1,2),
+  ('Super Battle City','SUPERBATTLECITY.jpg','2',1,1),
+  ('Wild WasteLand','WildWasteLand.jpeg','5',1,4)
+  -- insert for Adventure & RPG category
 
 
 GO
