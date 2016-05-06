@@ -180,6 +180,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="install.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -388,6 +389,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Assignment3Template\A3WebApplication\DAL_Project\DAL_Project.csproj">
+      <Project>{e3026510-5b06-4ff2-816b-3f06cbe5f7df}</Project>
+      <Name>DAL_Project</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GPClassLibrary\GPClassLibrary.csproj">
+      <Project>{d7b2c96b-83bc-4169-b666-24db7783bcef}</Project>
+      <Name>GPClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
