@@ -45,7 +45,7 @@ namespace GPClassLibrary
             g.CategoryID = int.Parse(row["CategoryID"].ToString());
             g.ConsoleID = int.Parse(row["ConsoleID"].ToString());
             g.GameName = row["GameName"].ToString();
-            g.GameImage = row["GameImage"].ToString());
+            g.GameImage = row["GameImage"].ToString();
             g.GameRating = int.Parse(row["GameRating"].ToString());
 
             return g;
