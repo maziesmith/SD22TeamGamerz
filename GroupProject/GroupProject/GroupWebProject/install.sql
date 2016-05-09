@@ -375,3 +375,5 @@ AS BEGIN
     ConsoleID=    @ConsoleID
   WHERE GameID =  @GameID
 END
+
+--exec spGetConsoleByID
