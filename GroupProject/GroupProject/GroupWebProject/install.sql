@@ -24,7 +24,8 @@ CREATE TABLE tbClient
 CREATE TABLE tbConsole
   (
     ConsoleID     INT IDENTITY (1,1) PRIMARY KEY,
-    ConsoleName   VARCHAR(MAX)
+    ConsoleName   VARCHAR(MAX),
+	ConsoleImage  VARCHAR(MAX)
   )
 CREATE TABLE tbCategory
   (
@@ -60,13 +61,13 @@ INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,Us
   ('Naruto', 'Uzumaki', '123 Konoha Street','Konoha','56453','1555 555 5555',
    'JonDoe','1234','IWannaBeTheHokage@Hokage.com', 0)
 
-INSERT INTO  tbConsole(ConsoleName) VALUES
-  ('PSP'),
-  ('PC'),
-  ('XBOX'),
-  ('PS3'),
-  ('PS4'),
-  ('WII')
+INSERT INTO  tbConsole(ConsoleName, ConsoleImage) VALUES
+  ('PSP','PSP.jpg'),
+  ('PC','PC.jpg'),
+  ('XBOX','XBOX.jpg'),
+  ('PS3','PS3.jpg'),
+  ('PS4','PS4.jpg'),
+  ('WII','WII.jpg')
 INSERT INTO tbCategory(CategoryName) VALUES
   ('Action'),
   ('Adventure & RPG (Role Playing Game)'),
