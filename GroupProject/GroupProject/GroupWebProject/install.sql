@@ -125,7 +125,8 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   --('FIFA 2k16','fifa2k16.jpg',7,6),
   --('Lets Play Baseball','lpb.jpg',7,2),
   --('NBA 2k16','nba2k16.jpg',7,2),
-  --('Soccer Man','SoccerMan.png',7,1)
+  --('Soccer Man','SoccerMan.png',7,1),
+  --('Super Shindler's List 3D', 'SuperShindlersList3D.png', 5, 2, 5)
 GO
 CREATE PROC spLogin
   (
