@@ -50,7 +50,6 @@
                     <a class="navbar-brand" runat="server" href="~/">Consoles</a>
                     <a class="navbar-brand" runat="server" href="~/">Categories</a>
                     <a class="navbar-brand" runat="server" href="~/">Games</a>
-                    <a class="navbar-brand" runat="server" href="~/">Account</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
