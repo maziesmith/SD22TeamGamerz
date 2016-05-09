@@ -77,7 +77,7 @@ INSERT INTO tbCategory(CategoryName) VALUES
   ('Sports'),
   ('strategy')
 INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
- -- insert for action category
+  -- insert for action category
   ('ARC of Templar','ARCOFTEMPLAR.jpg','3',1,2),
   ('Bear in super Action','BEARINSUPERACTION.jpg','2',1,2),
   ('Crest Breakout 2','CRESTBREAKOUT2.jpg','4',1,4),
