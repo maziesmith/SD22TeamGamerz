@@ -46,7 +46,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Hijiki</a>
+                    <a class="navbar-brand" runat="server" href="~/Default.aspx">Hijiki</a>
+                    <a class="navbar-brand" runat="server" href="~/">Consoles</a>
+                    <a class="navbar-brand" runat="server" href="~/">Categories</a>
+                    <a class="navbar-brand" runat="server" href="~/">Games</a>
+                    <a class="navbar-brand" runat="server" href="~/">Account</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
