@@ -1,10 +1,10 @@
 ﻿USE MASTER
 GO
-DROP DATABASE dbSD22GroupProject
+DROP DATABASE dbSD22GroupProject1
 GO
-CREATE DATABASE dbSD22GroupProject
+CREATE DATABASE dbSD22GroupProject1
 GO
-USE dbSD22GroupProject
+USE dbSD22GroupProject1
 GO
 
 CREATE TABLE tbClient
