@@ -439,6 +439,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL_Project\DAL_Project.csproj">
+      <Project>{e3026510-5b06-4ff2-816b-3f06cbe5f7df}</Project>
+      <Name>DAL_Project</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GPClassLibrary\GPClassLibrary.csproj">
       <Project>{d7b2c96b-83bc-4169-b666-24db7783bcef}</Project>
       <Name>GPClassLibrary</Name>

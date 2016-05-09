@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using DAL_Project;
+using System.Data;
 
 namespace GroupWebProject
 {
@@ -15,6 +17,7 @@ namespace GroupWebProject
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        private string connString = "Data Source=(local);Initial Catalog=dbSD22GroupProject;Integrated Security=SSPI";
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -69,7 +72,16 @@ namespace GroupWebProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                DataSet ds = new DataSet();
+                DAL myDAL = new DAL(connString);
+                ds = myDAL.ExecuteProcedure("spGetConsoleByID");
+                ddlSearch.DataSource = ds;
+                ddlSearch.DataTextField = "ConsoleName";
+                ddlSearch.DataValueField = "ConsoleID";
+                ddlSearch.DataBind();
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
