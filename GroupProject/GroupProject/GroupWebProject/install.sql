@@ -19,7 +19,7 @@ CREATE TABLE tbClient
     UserName      VARCHAR(MAX),
     Password      VARCHAR(MAX),
     Email         VARCHAR(MAX),
-    AccessLevel   BIT
+    AccessLevel   BIT  --0 = ADMIN , 1 = CLIENT
   )
 CREATE TABLE tbConsole
   (
@@ -37,7 +37,7 @@ CREATE TABLE tbGames
     GameID        INT IDENTITY (1,1) PRIMARY KEY,
     GameName      VARCHAR(MAX),
     GameImage     VARCHAR(MAX),
-    GameRating    VARCHAR(MAX),--1 to 5
+    GameRating    INT,--1 to 5
     CategoryID    INT FOREIGN KEY REFERENCES tbCategory(CategoryID),
     ConsoleID     INT FOREIGN KEY REFERENCES tbConsole(ConsoleID)
   )
@@ -45,6 +45,7 @@ CREATE TABLE tbGames
 --NEED SOME INSERTS HERE FOR TESTING
 
 INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,UserName,Password,Email,AccessLevel)  VALUES
+  -- INSERT FOR CLIENT
   ('Andrew', 'Leake', '69 Loli Lane','Winnipeg','R2N 4N5','1 204 996 1783',
    'Grunt','1234','Andrew.Leake@Robertsoncollege.net', 1),
   ('Christian', 'Earl', '12 Filipino Avenue','Winnipeg','R6P 0Y5','1 204 555 5555',
@@ -53,7 +54,7 @@ INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,Us
    'Jessy','1234','Jessy.Clement@Robertsoncollege.net', 1),
   ('Christian', 'Kessler', '11 Filipino Avenue','Winnipeg','R6P 0Y5','1 204 999 5555',
    'Kessler','1234','Christian.Kessler@Robertsoncollege.net', 1),
-
+   -- INSERT FOR ADMINS
   ('John', 'Doe', '123 Home Street','New York','55416','1555 555 5555',
    'JonDoe','1234','Jon.Doe@Robertsoncollege.net', 0),
   ('Jane', 'Doe', '123 Home Street','New York','55416','1555 555 5555',
@@ -79,54 +80,54 @@ INSERT INTO tbCategory(CategoryName) VALUES
   ('strategy')
 INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   -- insert for action category
-  ('ARC of Templar','ARCOFTEMPLAR.jpg','3',1,2),
-  ('Bear in super Action','BEARINSUPERACTION.jpg','2',1,2),
-  ('Crest Breakout 2','CRESTBREAKOUT2.jpg','4',1,4),
-  ('Earth Taken 3','EarthTaken3.jpg','2',1,2),
-  ('Furious Space','FURIOUSSPACE.jpg','4',1,5),
-  ('Raider took my DOG','raderstookmydog.jpg','2',1,2),
-  ('Super Battle City','SUPERBATTLECITY.jpg','2',1,1),
-  ('Wild WasteLand','WildWasteLand.jpeg','5',1,4),
+  ('ARC of Templar','ARCOFTEMPLAR.jpg',3,1,2),
+  ('Bear in super Action','BEARINSUPERACTION.jpg',2,1,2),
+  ('Crest Breakout 2','CRESTBREAKOUT2.jpg',4,1,4),
+  ('Earth Taken 3','EarthTaken3.jpg',2,1,2),
+  ('Furious Space','FURIOUSSPACE.jpg',4,1,5),
+  ('Raider took my DOG','raderstookmydog.jpg',2,1,2),
+  ('Super Battle City','SUPERBATTLECITY.jpg',2,1,1),
+  ('Wild WasteLand','WildWasteLand.jpeg',5,1,4),
   -- insert for Adventure & RPG category
-  ('Adventure Story','AdventureStory.jpg','3',2,3),
-  ('Cabal Online','CabalOnline.jpg','2',2,5),
-  ('Cloudstone','Cloudstone.png','1',2,5),
-  ('Monster Den Chronicles','MonsterDenChronicles.png','5',2,2),
-  ('Sonny 2 ','Sonny2.jpg','2',2,1),
-  ('The Last Stand','thelaststand.png','1',2,1),
-  ('Warlors Heroes','WarlordsHeroes.jpg','2',2,5),
+  ('Adventure Story','AdventureStory.jpg',3,2,3),
+  ('Cabal Online','CabalOnline.jpg',2,2,5),
+  ('Cloudstone','Cloudstone.png',1,2,5),
+  ('Monster Den Chronicles','MonsterDenChronicles.png',5,2,2),
+  ('Sonny 2 ','Sonny2.jpg',2,2,1),
+  ('The Last Stand','thelaststand.png',1,2,1),
+  ('Warlors Heroes','WarlordsHeroes.jpg',2,2,5),
   -- insert for Arcade
-  ('Death vs Monstars','deathvsmonster.jpg','4',3,2),
+  ('Death vs Monstars','deathvsmonster.jpg',4,3,2),
   ('dodge','dodge.jpg','2',3,6),
-  ('Medieval Shark','medievalshark.jpg','1',3,5),
-  ('The Lance','thelance.jpg','5',3,5),
-  ('The World Hardest Game','theworldhardestgame.jpg','3',3,2),
+  ('Medieval Shark','medievalshark.jpg',1,3,5),
+  ('The Lance','thelance.jpg',5,3,5),
+  ('The World Hardest Game','theworldhardestgame.jpg',3,3,2),
   --insert for Casino
-  ('Classic video Poker','classicvideopoker.jpg','2',4,6),
-  ('Diamond Royale','diamondroyale.jpeg','1',4,3),
-  ('GSN chachingco BINGO','gsnbingo.jpg','5',4,2),
-  ('Jackpot Boogie Slot','jackpotboogieslot.jpg','1',4,5),
-  ('Savanna Slots','savannaslots.jpg','2',4,2),
-  ('Wheel Of Fortune','wheeloffortune.jpg','4',4,1),
+  ('Classic video Poker','classicvideopoker.jpg',2,4,6),
+  ('Diamond Royale','diamondroyale.jpeg',1,4,3),
+  ('GSN chachingco BINGO','gsnbingo.jpg',5,4,2),
+  ('Jackpot Boogie Slot','jackpotboogieslot.jpg',1,4,5),
+  ('Savanna Slots','savannaslots.jpg',2,4,2),
+  ('Wheel Of Fortune','wheeloffortune.jpg',4,4,1),
   --insert for Family
-  ('Family Feud','familyfeud.jpg','3',5,1),
-  ('Family Restaurant','familyrestaurant.jpg','2',5,2),
-  ('Family Rush','familyrush.jpg','2',5,2),
-  ('Finders Keepers','finderkeepers.jpg','2',5,5),
-  ('Super Granny 4','supergranny4.jpg','4',5,1),
-  ('Turtix','turtix.jpg','3',5,6),
+  ('Family Feud','familyfeud.jpg',3,5,1),
+  ('Family Restaurant','familyrestaurant.jpg',2,5,2),
+  ('Family Rush','familyrush.jpg',2,5,2),
+  ('Finders Keepers','finderkeepers.jpg',2,5,5),
+  ('Super Granny 4','supergranny4.jpg',4,5,1),
+  ('Turtix','turtix.jpg',3,5,6),
   --insert for Puzzles
-  ('Bubblez','bubblez.jpg','2',6,1),
-  ('Cubis Gold','cubisgold.jpg','2',6,2),
-  ('Farm Scapes','farmcscapes.jpg','1',6,4),
-  ('PatchWorkz™','patchworkz.jpg','3',6,2),
-  ('Scara Terra Angelic Night','sacraterraangelicnight.jpg','2',6,1),
-  ('The Rise Of Atlantis','theriseofatlantis.jpg','2',6,6),
+  ('Bubblez','bubblez.jpg',2,6,1),
+  ('Cubis Gold','cubisgold.jpg',2,6,2),
+  ('Farm Scapes','farmcscapes.jpg',1,6,4),
+  ('PatchWorkz™','patchworkz.jpg',3,6,2),
+  ('Scara Terra Angelic Night','sacraterraangelicnight.jpg',2,6,1),
+  ('The Rise Of Atlantis','theriseofatlantis.jpg',2,6,6),
   --insert for Sports
-  ('FIFA 2k16','fifa2k16.jpg','2',7,6),
-  ('Lets Play Baseball','lpb.jpg','2',7,2),
-  ('NBA 2k16','nba2k16.jpg','1',7,2),
-  ('Soccer Man','SoccerMan.png','2',7,1)
+  ('FIFA 2k16','fifa2k16.jpg',2,7,6),
+  ('Lets Play Baseball','lpb.jpg',2,7,2),
+  ('NBA 2k16','nba2k16.jpg',1,7,2),
+  ('Soccer Man','SoccerMan.png',2,7,1)
 GO
 CREATE PROC spLogin
   (
