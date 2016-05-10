@@ -4,15 +4,15 @@
     
     
     <div class="jumbotron">
-        <h1>Mikijiji</h1>
+        <h1>Hijiki</h1>
         <p class="lead">Buy and sell games on all platforms!</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="6">
         <ItemTemplate>
-            ConsoleImage:
-            <asp:ImageButton ID="ConsoleImageLabel" ImageUrl='<%# Eval("ConsoleImage") %>' runat="server" /><br />
+            <asp:ImageButton ID="ConsoleImageLabel" ImageUrl='<%# Eval("ConsoleImage","~/Images/Consoles/{0}") %>'
+                 Height="200px" Width="200px" runat="server" /><br />
             ConsoleName:
             <asp:Label Text='<%# Eval("ConsoleName") %>' runat="server" ID="ConsoleNameLabel" /><br />
             <br />         
