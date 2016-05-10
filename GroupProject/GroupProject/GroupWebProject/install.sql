@@ -68,7 +68,7 @@ INSERT INTO  tbConsole(ConsoleName, ConsoleImage) VALUES
   ('XBOX','XBOX.jpg'),
   ('PS3','PS3.jpg'),
   ('PS4','PS4.jpg'),
-  ('WII','WII.jpg')
+  ('WII','WII.png')
 INSERT INTO tbCategory(CategoryName) VALUES
   ('Action'),
   ('Adventure & RPG (Role Playing Game)'),
