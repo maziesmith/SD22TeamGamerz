@@ -51,7 +51,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server" href="~/Default.aspx">TeamGamerz.com</a>
-                    <a class="navbar-brand" runat="server" href="~/About.aspx">AboutUs</a>
+                    <a class="navbar-brand" runat="server" href="~/About.aspx">About Us</a>
+                    <a class="navbar-brand" runat="server" href="`/Contact.aspx">Contact Us</a>
                     <a class="navbar-brand" runat="server" href="~/Categories.aspx">Categories</a>
                     <a class="navbar-brand" runat="server" href="~/Games.aspx">Games</a>
                     <a class="navbar-brand" runat="server" href="~/Ads.aspx">All Ads</a>

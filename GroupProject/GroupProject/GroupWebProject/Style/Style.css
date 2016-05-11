@@ -8,13 +8,18 @@
   -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
   border-radius: 18px;
-  font-family: Courier New;
+  font-family: Minecraft Evenings;
   color: #261d26;
   font-size: 50px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  vertical-align: central;
 }
 
+@font-face {
+    font-family: Minecraft Evenings;
+    src: url('../fonts/Minecraft Evenings.otf') format('opentype');
+}
 .CategoriesButton:hover {
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
