@@ -6,7 +6,7 @@
     <div class="jumbotron">
         <h1>TeamGamerz.com</h1>
         <p class="lead">Buy and sell games on all platforms!</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <p><a href="About.aspx" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="6">
