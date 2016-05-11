@@ -4,15 +4,15 @@
     
     
     <div class="jumbotron">
-        <h1>Hijiki</h1>
+        <h1>TeamGamerz.com</h1>
         <p class="lead">Buy and sell games on all platforms!</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <p><a href="About.aspx" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="6">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="6" DataKeyField="ConsoleName" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
             <asp:ImageButton ID="ConsoleImageLabel" ImageUrl='<%# Eval("ConsoleImage","~/Images/Consoles/{0}") %>'
-                 Height="200px" Width="200px" runat="server" /><br />
+                 Height="200px" Width="200px" runat="server" CommandArgument='<%# Eval("ConsoleName") %>' /><br />
             ConsoleName:
             <asp:Label Text='<%# Eval("ConsoleName") %>' runat="server" ID="ConsoleNameLabel" /><br />
             <br />         

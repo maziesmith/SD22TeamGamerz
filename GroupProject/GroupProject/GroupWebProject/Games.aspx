@@ -15,7 +15,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <%# Eval("GamePicture") %>
+                                    <asp:Image ID="imgGame" runat="server" ImageUrl='<%# Eval("GameImage", "~/Images/Action/{0}"); %>' /> <%# //FIX THIS SHIT %>
                                 </td>
                             </tr>
                             <tr>

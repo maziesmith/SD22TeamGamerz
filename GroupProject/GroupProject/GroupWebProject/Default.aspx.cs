@@ -15,5 +15,10 @@ namespace GroupWebProject
         {
 
         }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            Response.Redirect("Games.aspx?console=" + e.CommandArgument.ToString());
+        }
     }
 }
