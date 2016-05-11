@@ -210,6 +210,7 @@
     <Content Include="Images\Casino\jackpotboogieslot.jpg" />
     <Content Include="Images\Casino\savannaslots.jpg" />
     <Content Include="Images\Casino\wheeloffortune.jpg" />
+    <Content Include="Images\aboutus.jpg" />
     <Content Include="Images\Consoles\PC.jpg" />
     <Content Include="Images\Consoles\PS3.jpg" />
     <Content Include="Images\Consoles\PS4.jpg" />

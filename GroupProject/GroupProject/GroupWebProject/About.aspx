@@ -12,10 +12,10 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div class="container">
+      <div id="about">
+        <asp:Image ID="aboutus" ImageUrl="/Images/aboutus.jpg"  runat="server" Height="500px" Width="800px" />
+    </div>
   <div class="jumbotron">
-    <h1>ABOUT US</h1>
     <p></p> 
   </div>
   <div class="row">
@@ -29,8 +29,8 @@
     </div>
   
   </div>
-</div>
-    
+
+  
 </body>
 </html>
 </asp:Content>
