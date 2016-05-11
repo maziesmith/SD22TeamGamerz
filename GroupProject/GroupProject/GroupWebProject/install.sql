@@ -1,10 +1,10 @@
 ﻿USE MASTER
 GO
-DROP DATABASE dbSD22GroupProject1
+DROP DATABASE dbSD22GroupProject
 GO
-CREATE DATABASE dbSD22GroupProject1
+CREATE DATABASE dbSD22GroupProject
 GO
-USE dbSD22GroupProject1
+USE dbSD22GroupProject
 GO
 
 CREATE TABLE tbClient
@@ -71,13 +71,13 @@ INSERT INTO  tbConsole(ConsoleName, ConsoleImage) VALUES
   ('WII','WII.png')
 INSERT INTO tbCategory(CategoryName) VALUES
   ('Action'),
-  ('Adventure & RPG (Role Playing Game)'),
+  ('MMORPG'),
   ('Arcade'),
   ('Casino'),
   ('Family'),
   ('Puzzle'),
   ('Sports'),
-  ('strategy')
+  ('Strategy')
 INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   -- insert for action category
   ('ARC of Templar','ARCOFTEMPLAR.jpg',3,1,2),

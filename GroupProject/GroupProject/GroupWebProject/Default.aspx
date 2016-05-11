@@ -4,7 +4,7 @@
     
     
     <div class="jumbotron">
-        <h1>Hijiki</h1>
+        <h1>TeamGamerz.com</h1>
         <p class="lead">Buy and sell games on all platforms!</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
