@@ -179,6 +179,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="fonts\Minecraft Evenings.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\Action\ARCOFTEMPLAR.jpg" />
     <Content Include="Images\Action\BEARINSUPERACTION.jpg" />
