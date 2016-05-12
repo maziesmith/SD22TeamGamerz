@@ -7,7 +7,7 @@
 
         </div>
         <div class="game-sidebar">
-            <h3>a</h3>
+            <h3>THIS DOESN'T DO ANYTHING YET</h3>
         </div>
         <div class="col-sm-8">
             <table class="game-list">
