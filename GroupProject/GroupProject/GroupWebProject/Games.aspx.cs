@@ -12,8 +12,26 @@ namespace GroupWebProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string consoleName = Request.QueryString["console"];
-            dlGames.DataSource = Game.GetGamesByConsoleName(consoleName);
+            foreach (String key in Request.QueryString.AllKeys)
+            {
+                //Response.Write("Key: " + key + " Value: " + Request.QueryString[key]);
+
+                switch (key)
+                {
+                    case "category":
+                        int gameQueryInt = Convert.ToInt32(Request.QueryString["category"]);
+                        dlGames.DataSource = Game.GetGamesByCategoryID(gameQueryInt);
+                        break;
+                    case "console":
+                        string gameQueryString = Request.QueryString["console"];
+                        dlGames.DataSource = Game.GetGamesByConsoleName(gameQueryString);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //string queryName = Request.QueryString["console"] ?? Request.QueryString["category"];
+            //dlGames.DataSource = Game.GetGamesByConsoleName(queryName);
             dlGames.DataBind();
         }
     }

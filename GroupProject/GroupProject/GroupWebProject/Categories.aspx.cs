@@ -13,5 +13,10 @@ namespace GroupWebProject
         {
 
         }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            Response.Redirect("Games.aspx?category=" + e.CommandArgument.ToString());
+        }
     }
 }

@@ -7,13 +7,13 @@
             <asp:Panel ID="Panel1" HorizontalAlign="Center" runat="server">
                 <br />
                 <br />
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="3">
+                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="3" DataKeyField="CategoryName" OnItemCommand="DataList1_ItemCommand">
                     <ItemTemplate>
-                        <asp:LinkButton ID="lbCategory" Text='<%# Eval("CategoryName") %>' Height="80px" Width="300px" CssClass="CategoriesButton" runat="server"></asp:LinkButton><br />
+                        <asp:LinkButton ID="lbCategory" Text='<%# Eval("CategoryName") %>' Height="80px" Width="300px" CssClass="CategoriesButton" runat="server" CommandArgument='<%# Eval("CategoryID") %>'></asp:LinkButton><br />
                     </ItemTemplate>
                 </asp:DataList>
             </asp:Panel>
-            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' SelectCommand="SELECT [CategoryName] FROM [tbCategory]"></asp:SqlDataSource>
+            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' SelectCommand="SELECT [CategoryName], [CategoryID] FROM [tbCategory]"></asp:SqlDataSource>
         </div>
     </div>
 </asp:Content>

@@ -23,12 +23,15 @@ namespace GPClassLibrary
         {
             List<Game> listResults = new List<Game>();
 
-            DAL d = new DAL(ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString);
+            DAL d = new DAL(connString);
+            d.AddParam("CategoryID", CategoryID);
 
-            if (CategoryID != null)
-            {
-                d.AddParam("GameID", CategoryID);
-            }
+            //DAL d = new DAL(ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString);
+
+            //if (CategoryID != null)
+            //{
+                //d.AddParam("GameID", CategoryID);
+            //}
 
             DataSet ds = d.ExecuteProcedure("spGetGameByCategoryID");
 
