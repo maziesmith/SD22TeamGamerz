@@ -18,6 +18,8 @@ namespace GPClassLibrary
         public int GameRating { get; set; }
         public int CategoryID { get; set; }
         public int ConsoleID { get; set; }
+        public string CategoryName { get; set; }
+        public string ConsoleName { get; set; }
 
         public static List<Game> GetGamesByCategoryID(int? CategoryID)
         {
@@ -52,6 +54,8 @@ namespace GPClassLibrary
             g.GameName = row["GameName"].ToString();
             g.GameImage = row["GameImage"].ToString();
             g.GameRating = int.Parse(row["GameRating"].ToString());
+            g.CategoryName = row["CategoryName"].ToString();
+            g.ConsoleName = row["ConsoleName"].ToString();
 
             return g;
         }
@@ -73,5 +77,20 @@ namespace GPClassLibrary
             return listResults;
         }
 
+        public static List<Game> GetAllGames()
+        {
+            List<Game> listResults = new List<Game>();
+
+            DAL d = new DAL(connString);
+
+            DataSet ds = d.ExecuteProcedure("spGetGameByConsoleName");
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                listResults.Add(GetGameFromDataRow(row));
+            }
+
+            return listResults;
+        }
     }
 }

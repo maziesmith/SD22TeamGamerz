@@ -22,6 +22,11 @@
                                 <br />
                                 <%# Eval("GameRating") %>
                             </td>
+                            <td>
+                                <%# Eval("CategoryName") %>
+                                <br />
+                                <%# Eval("ConsoleName") %>
+                            </td>
                         </tr>
                     </ItemTemplate>
                 </asp:DataList>

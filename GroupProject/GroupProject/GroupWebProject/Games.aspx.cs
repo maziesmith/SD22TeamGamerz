@@ -27,6 +27,7 @@ namespace GroupWebProject
                         dlGames.DataSource = Game.GetGamesByConsoleName(gameQueryString);
                         break;
                     default:
+                        dlGames.DataSource = Game.GetAllGames();
                         break;
                 }
             }

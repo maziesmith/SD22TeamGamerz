@@ -236,8 +236,9 @@ CREATE PROC spGetGameByConsoleName
 	@ConsoleName varchar(MAX) = null
 )
 AS BEGIN
-	SELECT GameID, GameName, GameImage, GameRating, CategoryID, tbGames.ConsoleID FROM tbConsole
+	SELECT GameID, GameName, GameImage, GameRating, tbGames.CategoryID, tbGames.ConsoleID, ConsoleName, CategoryName FROM tbConsole
 	join tbGames on tbGames.ConsoleID = tbConsole.ConsoleID
+	join tbCategory on tbGames.CategoryID = tbCategory.CategoryID
 	WHERE ConsoleName = ISNULL(@ConsoleName, ConsoleName)
 END
 GO
@@ -331,8 +332,10 @@ CREATE PROC spGetGameByCategoryID
     @CategoryID     INT = NULL
   )
 AS BEGIN
-  SELECT * FROM tbGames
-  WHERE CategoryID = ISNULL(@CategoryID, CategoryID)
+  SELECT GameID, GameName, GameImage, GameRating, tbGames.CategoryID, tbGames.ConsoleID, ConsoleName, CategoryName FROM tbCategory
+	join tbGames on tbGames.CategoryID = tbCategory.CategoryID
+	join tbConsole on tbGames.ConsoleID = tbConsole.ConsoleID
+	WHERE tbCategory.CategoryID = ISNULL(@CategoryID, tbCategory.CategoryID)
 END
 GO
 CREATE PROC spGetGameByID
