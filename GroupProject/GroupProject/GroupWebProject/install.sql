@@ -88,6 +88,8 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('Raider took my DOG','raiderstookmydog.jpg',2,1,2),
   ('Super Battle City','SUPERBATTLECITY.jpg',2,1,1),
   ('Wild WasteLand','WildWasteLand.jpeg',5,1,4),
+  ('Serious Sam: The First Encounter', 'Serious_Sam_-_The_First_Encounter_-_US_Windows_box_art_-_Croteam.jpg', 5, 1, 2),
+  ('Earth Defense Force 2025', '919jJiSgzfL_SL1500_.jpg', 4, 1, 4),
   -- insert for Adventure & RPG category
   ('Adventure Story','AdventureStory.jpg',3,2,3),
   ('Cabal Online','CabalOnline.jpg',2,2,5),
