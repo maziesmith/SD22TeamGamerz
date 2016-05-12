@@ -85,7 +85,7 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('Crest Breakout 2','CRESTBREAKOUT2.jpg',4,1,4),
   ('Earth Taken 3','EarthTaken3.jpg',2,1,2),
   ('Furious Space','FURIOUSSPACE.jpg',4,1,5),
-  ('Raider took my DOG','raderstookmydog.jpg',2,1,2),
+  ('Raider took my DOG','raiderstookmydog.jpg',2,1,2),
   ('Super Battle City','SUPERBATTLECITY.jpg',2,1,1),
   ('Wild WasteLand','WildWasteLand.jpeg',5,1,4),
   -- insert for Adventure & RPG category
@@ -233,12 +233,12 @@ GO
 
 CREATE PROC spGetGameByConsoleName
 (
-	@ConsoleName varchar(MAX)
+	@ConsoleName varchar(MAX) = null
 )
 AS BEGIN
 	SELECT GameID, GameName, GameImage, GameRating, CategoryID, tbGames.ConsoleID FROM tbConsole
 	join tbGames on tbGames.ConsoleID = tbConsole.ConsoleID
-	WHERE ConsoleName = @ConsoleName
+	WHERE ConsoleName = ISNULL(@ConsoleName, ConsoleName)
 END
 GO
 

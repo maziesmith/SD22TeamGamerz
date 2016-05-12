@@ -6,29 +6,26 @@
         <div class="jumbotron">
 
         </div>
-        <div class="col-sm-4">
+        <div class="game-sidebar">
             <h3>a</h3>
         </div>
         <div class="col-sm-8">
-                <asp:DataList ID="dlGames" RepeatColumns="3" runat="server">
+            <table class="game-list">
+                <asp:DataList ID="dlGames" RepeatColumns="1" runat="server" >
                     <ItemTemplate>
-                        <table>
-                            <tr>
-                                <td>
-                                    <asp:Image ID="imgGame" runat="server" ImageUrl='<%# Eval("GameImage", "~/Images/Action/{0}"); %>' /> <%# //FIX THIS SHIT %>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <%# Eval("GameName") %>
-                                </td>
-                                <td>
-                                    <%# Eval("GameRating") %>
-                                </td>
-                            </tr>
-                        </table>
+                        <tr class="game-item">
+                            <td class="game-item-image">
+                                <asp:Image ID="imgGame" CssClass="game-image-size" runat="server" ImageUrl='<%#String.Format("~/Images/Games/{0}", Eval("GameImage")) %>'  />
+                            </td>
+                            <td class="game-item-text">
+                                <%# Eval("GameName") %>
+                                <br />
+                                <%# Eval("GameRating") %>
+                            </td>
+                        </tr>
                     </ItemTemplate>
                 </asp:DataList>
+            </table>
         </div>
     </div>
 </asp:Content>
