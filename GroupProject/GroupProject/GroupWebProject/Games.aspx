@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="container">
+    <div class="container" style="display: block">
         <div class="jumbotron">
 
         </div>

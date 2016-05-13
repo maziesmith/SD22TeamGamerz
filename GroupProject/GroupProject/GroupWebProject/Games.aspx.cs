@@ -12,24 +12,29 @@ namespace GroupWebProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            foreach (String key in Request.QueryString.AllKeys)
+            if (Request.QueryString.AllKeys.Length != 0)
             {
-                //Response.Write("Key: " + key + " Value: " + Request.QueryString[key]);
-
-                switch (key)
+                foreach (String key in Request.QueryString.AllKeys)
                 {
-                    case "category":
-                        int gameQueryInt = Convert.ToInt32(Request.QueryString["category"]);
-                        dlGames.DataSource = Game.GetGamesByCategoryID(gameQueryInt);
-                        break;
-                    case "console":
-                        string gameQueryString = Request.QueryString["console"];
-                        dlGames.DataSource = Game.GetGamesByConsoleName(gameQueryString);
-                        break;
-                    default:
-                        dlGames.DataSource = Game.GetAllGames();
-                        break;
+                    //Response.Write("Key: " + key + " Value: " + Request.QueryString[key]);
+                    switch (key)
+                    {
+                        case "category":
+                            int gameQueryInt = Convert.ToInt32(Request.QueryString["category"]);
+                            dlGames.DataSource = Game.GetGamesByCategoryID(gameQueryInt);
+                            break;
+                        case "console":
+                            string gameQueryString = Request.QueryString["console"];
+                            dlGames.DataSource = Game.GetGamesByConsoleName(gameQueryString);
+                            break;
+                        default:
+                            break;
+                    }
                 }
+            }
+            else
+            {
+                dlGames.DataSource = Game.GetAllGames();
             }
             //string queryName = Request.QueryString["console"] ?? Request.QueryString["category"];
             //dlGames.DataSource = Game.GetGamesByConsoleName(queryName);
