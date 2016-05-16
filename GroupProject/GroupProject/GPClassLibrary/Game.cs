@@ -5,28 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
+using DAL_Project;
 
 namespace GPClassLibrary
 {
     public class Game
     {
+        private static string connString = "Data Source=(local);Initial Catalog=dbSD22GroupProject;Integrated Security=SSPI";
         public int GameID { get; set; }
         public string GameName { get; set; }
         public string GameImage { get; set; }
         public int GameRating { get; set; }
         public int CategoryID { get; set; }
         public int ConsoleID { get; set; }
+        public string CategoryName { get; set; }
+        public string ConsoleName { get; set; }
 
-        public static List<Game> GetGamesByCategoryID(int? GameID)
+        public static List<Game> GetGamesByCategoryID(int? CategoryID)
         {
             List<Game> listResults = new List<Game>();
 
-            DAL_Project.DAL d = new DAL_Project.DAL(ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString);
+            DAL d = new DAL(connString);
+            d.AddParam("CategoryID", CategoryID);
 
-            if (GameID != null)
-            {
-                d.AddParam("GameID", GameID);
-            }
+            //DAL d = new DAL(ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString);
+
+            //if (CategoryID != null)
+            //{
+                //d.AddParam("GameID", CategoryID);
+            //}
 
             DataSet ds = d.ExecuteProcedure("spGetGameByCategoryID");
 
@@ -47,9 +54,43 @@ namespace GPClassLibrary
             g.GameName = row["GameName"].ToString();
             g.GameImage = row["GameImage"].ToString();
             g.GameRating = int.Parse(row["GameRating"].ToString());
+            g.CategoryName = row["CategoryName"].ToString();
+            g.ConsoleName = row["ConsoleName"].ToString();
 
             return g;
         }
 
+        public static List<Game> GetGamesByConsoleName(string ConsoleName)
+        {
+            List<Game> listResults = new List<Game>();
+
+            DAL d = new DAL(connString);
+            d.AddParam("ConsoleName", ConsoleName);
+
+            DataSet ds = d.ExecuteProcedure("spGetGameByConsoleName");
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                listResults.Add(GetGameFromDataRow(row));
+            }
+
+            return listResults;
+        }
+
+        public static List<Game> GetAllGames()
+        {
+            List<Game> listResults = new List<Game>();
+
+            DAL d = new DAL(connString);
+
+            DataSet ds = d.ExecuteProcedure("spGetGameByConsoleName");
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                listResults.Add(GetGameFromDataRow(row));
+            }
+
+            return listResults;
+        }
     }
 }

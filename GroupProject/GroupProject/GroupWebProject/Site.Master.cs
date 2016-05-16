@@ -17,7 +17,7 @@ namespace GroupWebProject
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
-        private string connString = "Data Source=(local);Initial Catalog=dbSD22GroupProject;Integrated Security=SSPI";
+        private string connString = "Data Source=(local);Initial Catalog=dbSD22GroupProject1;Integrated Security=SSPI";
 
         protected void Page_Init(object sender, EventArgs e)
         {

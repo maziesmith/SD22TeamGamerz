@@ -6814,3 +6814,39 @@ td.visible-print {
     display: none !important;
   }
 }
+
+.game-image-size {
+    width: 200px;
+    height: 200px;
+}
+
+.game-sidebar {
+    width: 250px;
+    height: 500px;
+    float: left;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+}
+
+.game-list {
+    width: 100%;
+    display: block;
+}
+
+.game-item {
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+}
+
+game-item-image {
+    width: 30%;
+}
+
+.game-item-text {
+    width: 70%;
+    text-align: left;
+}
