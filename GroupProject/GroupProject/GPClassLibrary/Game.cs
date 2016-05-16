@@ -97,7 +97,7 @@ namespace GPClassLibrary
         {
             Game myGame = new Game();
 
-            DAL d = new DAL(connString);
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
             DataSet ds = d.ExecuteProcedure("spGetGameByID");
 

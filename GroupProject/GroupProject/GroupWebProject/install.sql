@@ -158,12 +158,12 @@ END
 GO
 CREATE PROC spInsertClient
   (
-    @FirstName     VARCHAR(MAX),
-    @LastName      VARCHAR(MAX),
-    @Address       VARCHAR(MAX),
-    @City          VARCHAR(MAX),
-    @PostalCode    VARCHAR(MAX),
-    @PhoneNumber   VARCHAR(MAX),
+    @FirstName     VARCHAR(MAX) = NULL,
+    @LastName      VARCHAR(MAX) = NULL,
+    @Address       VARCHAR(MAX) = NULL,
+    @City          VARCHAR(MAX) = NULL,
+    @PostalCode    VARCHAR(MAX) = NULL,
+    @PhoneNumber   VARCHAR(MAX) = NULL,
     @UserName      VARCHAR(MAX),
     @Password      VARCHAR(MAX),
     @Email         VARCHAR(MAX),
@@ -180,8 +180,8 @@ AS BEGIN
     END
   ELSE
     BEGIN
-      INSERT INTO tbClient(FirstName, LastName, Address, City, PostalCode, PhoneNumber, UserName, Password, AccessLevel)
-      VALUES				      (@FirstName, @LastName, @Address, @City, @PostalCode, @PhoneNumber, @UserName, @Password, @AccessLevel)
+      INSERT INTO tbClient(FirstName, LastName, Address, City, PostalCode, PhoneNumber, UserName, Password, Email, AccessLevel)
+      VALUES				      (@FirstName, @LastName, @Address, @City, @PostalCode, @PhoneNumber, @UserName, @Password, @Email, @AccessLevel)
       SELECT SCOPE_IDENTITY() AS 'NewClientID'
     END
 END

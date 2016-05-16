@@ -30,7 +30,7 @@ namespace GroupWebProject
                     Security.Login(UserName.Text, Password.Text);
                     if (Security.IsClientAdmin())
                     {
-                        Response.Redirect("~/AdminPage.aspx");
+                        Response.Redirect("~/Account/AdminPage.aspx");
                     }
                     else if (Security.IsClientLoggedIn())
                     {
