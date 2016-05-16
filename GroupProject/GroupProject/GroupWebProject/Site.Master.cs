@@ -50,6 +50,12 @@ namespace GroupWebProject
             Security.LogOut();
             Response.Redirect("~/Default.aspx");
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Session["Search"] = txtSearchBar.Text;
+            Response.Redirect("Games.aspx");
+        }
     }
 
 }

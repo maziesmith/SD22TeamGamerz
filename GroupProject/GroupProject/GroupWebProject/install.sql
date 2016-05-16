@@ -88,6 +88,8 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('Raider took my DOG','raiderstookmydog.jpg',2,1,2),
   ('Super Battle City','SUPERBATTLECITY.jpg',2,1,1),
   ('Wild WasteLand','WildWasteLand.jpeg',5,1,4),
+  ('Serious Sam: The First Encounter', 'Serious_Sam_-_The_First_Encounter_-_US_Windows_box_art_-_Croteam.jpg', 5, 1, 2),
+  ('Earth Defense Force 2025', '919jJiSgzfL_SL1500_.jpg', 4, 1, 4),
   -- insert for Adventure & RPG category
   ('Adventure Story','AdventureStory.jpg',3,2,3),
   ('Cabal Online','CabalOnline.jpg',2,2,5),
@@ -394,5 +396,21 @@ AS BEGIN
     ConsoleID=    @ConsoleID
   WHERE GameID =  @GameID
 END
-
+GO
 --exec spGetConsoleByID
+
+
+--EXEC spGetGameByGameName
+CREATE PROC spGetGameByGameName
+  (
+   @GameID        INT,
+    @GameName      VARCHAR(MAX),
+    @GameImage     VARCHAR(MAX),
+    @GameRating    VARCHAR(MAX),
+    @CategoryID    INT,
+    @ConsoleID     INT
+  )
+  AS BEGIN
+  SELECT GameID,GameName,'./Images/Games/'+GameImage as GameImage,GameRating FROM tbGames WHERE GameName LIKE ISNULL('%'+@GameName+'%',GameName)
+  END
+  GO

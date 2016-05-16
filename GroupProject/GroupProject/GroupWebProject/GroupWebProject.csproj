@@ -169,33 +169,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\Minecraft Evenings.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="GamePage.aspx" />
     <Content Include="Games.aspx" />
-    <Content Include="Images\Action\ARCOFTEMPLAR.jpg" />
-    <Content Include="Images\Action\BEARINSUPERACTION.jpg" />
-    <Content Include="Images\Action\CRESTBREAKOUT2.jpg" />
-    <Content Include="Images\Action\EarthTaken3.jpg" />
-    <Content Include="Images\Action\FURIOUSSPACE.jpg" />
-    <Content Include="Images\Action\raiderstookmydog.jpg" />
-    <Content Include="Images\Action\SUPERBATTLECITY.jpg" />
-    <Content Include="Images\Action\WildWasteLand.jpeg" />
-    <Content Include="Images\Adventure\AdventureStory.jpg" />
-    <Content Include="Images\Adventure\CabalOnline.jpg" />
-    <Content Include="Images\Adventure\Cloudstone.png" />
-    <Content Include="Images\Adventure\MonstersDenChronicles.png" />
-    <Content Include="Images\Adventure\Sonny2.jpg" />
-    <Content Include="Images\Adventure\thelaststand.png" />
-    <Content Include="Images\Adventure\WarlordsHeroes.jpg" />
-    <Content Include="Images\Arcade\deathvsmonster.jpg" />
-    <Content Include="Images\Arcade\dodge.jpg" />
-    <Content Include="Images\Arcade\medievalshark.jpg" />
-    <Content Include="Images\Arcade\thelance.jpg" />
-    <Content Include="Images\Arcade\theworldhardestgame.jpg" />
-    <Content Include="Images\Casino\classicvideopoker.jpg" />
-    <Content Include="Images\Casino\diamondroyale.jpeg" />
-    <Content Include="Images\Casino\gsnbingo.jpg" />
-    <Content Include="Images\Casino\jackpotboogieslot.jpg" />
-    <Content Include="Images\Casino\savannaslots.jpg" />
-    <Content Include="Images\Casino\wheeloffortune.jpg" />
     <Content Include="Images\aboutus.jpg" />
     <Content Include="Images\Consoles\PC.jpg" />
     <Content Include="Images\Consoles\PS3.jpg" />
@@ -203,22 +178,50 @@
     <Content Include="Images\Consoles\PSP.jpg" />
     <Content Include="Images\Consoles\WII.png" />
     <Content Include="Images\Consoles\XBOX.jpg" />
-    <Content Include="Images\Family\familyfeud.jpg" />
-    <Content Include="Images\Family\familyrestaurant.jpg" />
-    <Content Include="Images\Family\familyrush.jpg" />
-    <Content Include="Images\Family\finderkeepers.jpg" />
-    <Content Include="Images\Family\supergranny4.jpg" />
-    <Content Include="Images\Family\turtix.jpeg" />
-    <Content Include="Images\Puzzle\bubblez.jpg" />
-    <Content Include="Images\Puzzle\cubisgold.jpg" />
-    <Content Include="Images\Puzzle\farmscapes.jpg" />
-    <Content Include="Images\Puzzle\patchworkz.jpg" />
-    <Content Include="Images\Puzzle\sacraterraangelicnight.jpg" />
-    <Content Include="Images\Puzzle\theriseofatlantis.jpg" />
-    <Content Include="Images\Sports\fifa2k16.jpg" />
-    <Content Include="Images\Sports\lpb.jpg" />
-    <Content Include="Images\Sports\nba2k16.jpg" />
-    <Content Include="Images\Sports\SoccerMan.png" />
+    <Content Include="Images\Games\919jJiSgzfL_SL1500_.jpg" />
+    <Content Include="Images\Games\AdventureStory.jpg" />
+    <Content Include="Images\Games\ARCOFTEMPLAR.jpg" />
+    <Content Include="Images\Games\BEARINSUPERACTION.jpg" />
+    <Content Include="Images\Games\bubblez.jpg" />
+    <Content Include="Images\Games\CabalOnline.jpg" />
+    <Content Include="Images\Games\classicvideopoker.jpg" />
+    <Content Include="Images\Games\Cloudstone.png" />
+    <Content Include="Images\Games\CRESTBREAKOUT2.jpg" />
+    <Content Include="Images\Games\cubisgold.jpg" />
+    <Content Include="Images\Games\deathvsmonster.jpg" />
+    <Content Include="Images\Games\diamondroyale.jpeg" />
+    <Content Include="Images\Games\dodge.jpg" />
+    <Content Include="Images\Games\EarthTaken3.jpg" />
+    <Content Include="Images\Games\familyfeud.jpg" />
+    <Content Include="Images\Games\familyrestaurant.jpg" />
+    <Content Include="Images\Games\familyrush.jpg" />
+    <Content Include="Images\Games\farmscapes.jpg" />
+    <Content Include="Images\Games\fifa2k16.jpg" />
+    <Content Include="Images\Games\finderkeepers.jpg" />
+    <Content Include="Images\Games\FURIOUSSPACE.jpg" />
+    <Content Include="Images\Games\gsnbingo.jpg" />
+    <Content Include="Images\Games\jackpotboogieslot.jpg" />
+    <Content Include="Images\Games\lpb.jpg" />
+    <Content Include="Images\Games\medievalshark.jpg" />
+    <Content Include="Images\Games\MonsterDenChronicles.png" />
+    <Content Include="Images\Games\nba2k16.jpg" />
+    <Content Include="Images\Games\patchworkz.jpg" />
+    <Content Include="Images\Games\raiderstookmydog.jpg" />
+    <Content Include="Images\Games\sacraterraangelicnight.jpg" />
+    <Content Include="Images\Games\savannaslots.jpg" />
+    <Content Include="Images\Games\Serious_Sam_-_The_First_Encounter_-_US_Windows_box_art_-_Croteam.jpg" />
+    <Content Include="Images\Games\SoccerMan.png" />
+    <Content Include="Images\Games\Sonny2.jpg" />
+    <Content Include="Images\Games\SUPERBATTLECITY.jpg" />
+    <Content Include="Images\Games\supergranny4.jpg" />
+    <Content Include="Images\Games\thelance.jpg" />
+    <Content Include="Images\Games\thelaststand.png" />
+    <Content Include="Images\Games\theriseofatlantis.jpg" />
+    <Content Include="Images\Games\theworldhardestgame.jpg" />
+    <Content Include="Images\Games\turtix.jpeg" />
+    <Content Include="Images\Games\WarlordsHeroes.jpg" />
+    <Content Include="Images\Games\wheeloffortune.jpg" />
+    <Content Include="Images\Games\WildWasteLand.jpeg" />
     <Content Include="install.sql" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -322,6 +325,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GamePage.aspx.cs">
+      <DependentUpon>GamePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GamePage.aspx.designer.cs">
+      <DependentUpon>GamePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games.aspx.cs">
       <DependentUpon>Games.aspx</DependentUpon>

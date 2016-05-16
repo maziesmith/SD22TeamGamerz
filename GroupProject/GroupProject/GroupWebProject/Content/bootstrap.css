@@ -6829,10 +6829,12 @@ td.visible-print {
     border-width: 2px;
     border-radius: 5px;
     position: relative;
+    display: block;
 }
 
 .game-list {
     width: 100%;
+    display: block;
 }
 
 .game-item {

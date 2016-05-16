@@ -52,7 +52,7 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/Default.aspx">TeamGamerz.com</a>
                     <a class="navbar-brand" runat="server" href="~/About.aspx">About Us</a>
-                    <a class="navbar-brand" runat="server" href="`/Contact.aspx">Contact Us</a>
+                    <a class="navbar-brand" runat="server" href="~/Contact.aspx">Contact Us</a>
                     <a class="navbar-brand" runat="server" href="~/Categories.aspx">Categories</a>
                     <a class="navbar-brand" runat="server" href="~/Games.aspx">Games</a>
                     <a class="navbar-brand" runat="server" href="~/Ads.aspx">All Ads</a>
@@ -82,7 +82,7 @@
                 <div class="navbar-header">
                 <asp:TextBox ID="txtSearchBar" runat="server"></asp:TextBox>
                 <asp:DropDownList ID="ddlSearch" runat="server"></asp:DropDownList>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" />
+                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
             </div>
                 <div class="nav navbar-nav navbar-right">
                     <%//there's nothing in the database for location right now %>
