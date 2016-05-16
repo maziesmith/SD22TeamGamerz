@@ -11,7 +11,7 @@
         </div>
         <div class="col-sm-8">
             <table class="game-list">
-                <asp:DataList ID="dlGames" RepeatColumns="1" runat="server" >
+                <asp:DataList ID="dlGames" RepeatColumns="1" runat="server" DataKeyField="GameID" OnItemCommand="dlGames_ItemCommand" >
                     <ItemTemplate>
                         <tr class="game-item">
                             <td class="game-item-image">
