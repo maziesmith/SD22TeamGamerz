@@ -346,6 +346,8 @@ CREATE PROC spGetGameByID
   )
 AS BEGIN
   SELECT * FROM tbGames
+  join tbCategory on tbGames.CategoryID = tbCategory.CategoryID
+  join tbConsole on tbConsole.ConsoleID = tbGames.ConsoleID
   WHERE GameID = ISNULL(@GameID, GameID)
 END
 GO
