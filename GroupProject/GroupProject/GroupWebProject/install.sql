@@ -45,7 +45,7 @@ CREATE TABLE tbGames
 --NEED SOME INSERTS HERE FOR TESTING
 
 INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,UserName,Password,Email,AccessLevel)  VALUES
-  -- INSERT FOR CLIENT
+  -- INSERT FOR admin
   ('Andrew', 'Leake', '69 Loli Lane','Winnipeg','R2N 4N5','1 204 996 1783',
    'Grunt','1234','Andrew.Leake@Robertsoncollege.net', 1),
   ('Christian', 'Earl', '12 Filipino Avenue','Winnipeg','R6P 0Y5','1 204 555 5555',
@@ -54,13 +54,13 @@ INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,Us
    'Jessy','1234','Jessy.Clement@Robertsoncollege.net', 1),
   ('Christian', 'Kessler', '11 Filipino Avenue','Winnipeg','R6P 0Y5','1 204 999 5555',
    'Kessler','1234','Christian.Kessler@Robertsoncollege.net', 1),
-   -- INSERT FOR ADMINS
+   -- INSERT FOR client
   ('John', 'Doe', '123 Home Street','New York','55416','1555 555 5555',
    'JonDoe','1234','Jon.Doe@Robertsoncollege.net', 0),
   ('Jane', 'Doe', '123 Home Street','New York','55416','1555 555 5555',
    'JaneDoe','1234','Jane.Doe@Robertsoncollege.net', 0),
   ('Naruto', 'Uzumaki', '123 Konoha Street','Konoha','56453','1555 555 5555',
-   'JonDoe','1234','IWannaBeTheHokage@Hokage.com', 0)
+   'naruto1','1234','IWannaBeTheHokage@Hokage.com', 0)
 
 INSERT INTO  tbConsole(ConsoleName, ConsoleImage) VALUES
   ('PSP','PSP.jpg'),
@@ -411,6 +411,6 @@ CREATE PROC spGetGameByGameName
     @ConsoleID     INT
   )
   AS BEGIN
-  SELECT GameID,GameName,'./Images/Games/'+GameImage as GameImage,GameRating FROM tbGames WHERE GameName LIKE ISNULL('%'+@GameName+'%',GameName)
+  SELECT GameID,GameName,'./Images/Games'+GameImage as GameImage,GameRating FROM tbGames WHERE GameName LIKE ISNULL('%'+@GameName+'%',GameName)
   END
   GO

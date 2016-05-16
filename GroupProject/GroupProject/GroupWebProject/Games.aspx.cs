@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GPClassLibrary;
+using DAL_Project;
 
 namespace GroupWebProject
 {
@@ -35,7 +36,9 @@ namespace GroupWebProject
             else
             {
                 dlGames.DataSource = Game.GetAllGames();
+                
             }
+           
             //string queryName = Request.QueryString["console"] ?? Request.QueryString["category"];
             //dlGames.DataSource = Game.GetGamesByConsoleName(queryName);
             dlGames.DataBind();
@@ -43,6 +46,7 @@ namespace GroupWebProject
 
         protected void dlGames_ItemCommand(object source, DataListCommandEventArgs e)
         {
+            
             Response.Redirect("GamePage.aspx?game=" + e.CommandArgument.ToString());
         }
     }
