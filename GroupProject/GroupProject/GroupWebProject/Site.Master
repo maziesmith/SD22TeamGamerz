@@ -60,22 +60,22 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                    <asp:PlaceHolder ID="Default" runat="server">
+                    <div class="nav navbar-nav navbar-right">
+                        <asp:HyperLink CssClass="navbar-brand" ID="hlRegister" NavigateUrl="~/Account/Register" runat="server">Register</asp:HyperLink>
+                        <asp:HyperLink CssClass="navbar-brand" ID="hlLogin" NavigateUrl="~/Account/Login" runat="server">Log in</asp:HyperLink>
+                    </div>
+                    </asp:PlaceHolder>
+                    <asp:PlaceHolder ID="User" Visible="false" runat="server">
+                    <div class="nav navbar-nav navbar-right">
+                        <asp:HyperLink  CssClass="navbar-brand" ID="hlManageAccount" NavigateUrl="~/Account/ManageAccount" runat="server">Hello 
+                            <asp:Label ID="lbName" runat="server" Text=""></asp:Label>
+                        </asp:HyperLink>
+                        <asp:HyperLink  CssClass="navbar-brand" ID="hlAdmin" NavigateUrl="~/Account/AdminPage" runat="server">Admin Page</asp:HyperLink>
+                        <asp:LinkButton  CssClass="navbar-brand" ID="lbLogout" OnClick="lbLogout_Click1" runat="server">Logout</asp:LinkButton>
+                    </div>
+                    </asp:PlaceHolder>
+
                 </div>
             </div>
             <div class="container">

@@ -17,7 +17,7 @@ namespace GPClassLibrary
 
         public Category(int CategoryID)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             DAL_Project.DAL d = new DAL_Project.DAL(connStr);
             d.AddParam("CategoryID", CategoryID);
             DataSet ds = d.ExecuteProcedure("spGetCategoryByID");
@@ -27,7 +27,7 @@ namespace GPClassLibrary
         {
             List<Category> resultList = new List<Category>();
 
-            string connStr = ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             DAL_Project.DAL d = new DAL_Project.DAL(connStr);
             DataSet ds = d.ExecuteProcedure("spGetCategoryByID");
 
