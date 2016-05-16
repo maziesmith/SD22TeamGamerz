@@ -12,7 +12,9 @@ namespace GroupWebProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string GameID = Request.QueryString["game"];        
+            dlGame.DataSource = Game.GetGameByID(GameID);
+            dlGame.DataBind();
         }
     }
 }
