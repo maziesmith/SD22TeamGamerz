@@ -11,7 +11,7 @@ namespace GPClassLibrary
 {
     public class Game
     {
-        private static string connString = "Data Source=(local);Initial Catalog=dbSD22GroupProject;Integrated Security=SSPI";
+        //private static string connString = "Data Source=(local);Initial Catalog=dbSD22GroupProject;Integrated Security=SSPI";
         public int GameID { get; set; }
         public string GameName { get; set; }
         public string GameImage { get; set; }
@@ -25,15 +25,14 @@ namespace GPClassLibrary
         {
             List<Game> listResults = new List<Game>();
 
-            DAL d = new DAL(connString);
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
             d.AddParam("CategoryID", CategoryID);
 
-            //DAL d = new DAL(ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString);
-
-            //if (CategoryID != null)
-            //{
-                //d.AddParam("GameID", CategoryID);
-            //}
+            if (CategoryID != null)
+            {
+            d.AddParam("GameID", CategoryID);
+            }
 
             DataSet ds = d.ExecuteProcedure("spGetGameByCategoryID");
 
@@ -64,7 +63,8 @@ namespace GPClassLibrary
         {
             List<Game> listResults = new List<Game>();
 
-            DAL d = new DAL(connString);
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
             d.AddParam("ConsoleName", ConsoleName);
 
             DataSet ds = d.ExecuteProcedure("spGetGameByConsoleName");
@@ -81,7 +81,7 @@ namespace GPClassLibrary
         {
             List<Game> listResults = new List<Game>();
 
-            DAL d = new DAL(connString);
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
             DataSet ds = d.ExecuteProcedure("spGetGameByConsoleName");
 

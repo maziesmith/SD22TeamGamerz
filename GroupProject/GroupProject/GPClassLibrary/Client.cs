@@ -26,7 +26,7 @@ namespace GPClassLibrary
         public static Client Login(string UserName, string Password)
         {
             Client result = null;
-            DAL d = new DAL(ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString);
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             d.AddParam("UserName", UserName);
             d.AddParam("Password", Password);
             DataSet ds = d.ExecuteProcedure("spLogin");
@@ -53,7 +53,7 @@ namespace GPClassLibrary
         {
             List<Client> result = new List<Client>();
 
-            DAL d = new DAL(ConfigurationManager.ConnectionStrings["dbGroupProject"].ConnectionString);
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             DataSet ds = d.ExecuteProcedure("spGetClientByID");
 
             foreach (DataRow row in ds.Tables[0].Rows)
