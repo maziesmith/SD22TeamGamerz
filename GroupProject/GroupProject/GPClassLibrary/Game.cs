@@ -95,17 +95,17 @@ namespace GPClassLibrary
 
         public static List<Game> GetGameByID(string GameID)
         {
-            List<Game> myGame = new List<Game>();
+            List<Game> listResults = new List<Game>();
 
             DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-
+            d.AddParam("GameID", GameID);
             DataSet ds = d.ExecuteProcedure("spGetGameByID");
             foreach (DataRow row in ds.Tables[0].Rows)
             {
-                myGame.Add(GetGameFromDataRow(row));
+                listResults.Add(GetGameFromDataRow(row));
             }
 
-            return myGame;
+            return listResults;
         }
     }
 }
