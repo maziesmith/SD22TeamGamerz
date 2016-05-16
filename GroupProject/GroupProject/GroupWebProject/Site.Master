@@ -82,7 +82,7 @@
                 <div class="navbar-header">
                 <asp:TextBox ID="txtSearchBar" runat="server"></asp:TextBox>
                 <asp:DropDownList ID="ddlSearch" runat="server"></asp:DropDownList>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" />
+                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
             </div>
                 <div class="nav navbar-nav navbar-right">
                     <%//there's nothing in the database for location right now %>
