@@ -11,7 +11,7 @@ namespace GroupWebProject.Account
 {
 
 
-    public partial class Lockout
+    public partial class ManageAccount
     {
     }
 }

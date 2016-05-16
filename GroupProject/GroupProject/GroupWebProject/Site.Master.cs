@@ -9,84 +9,46 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using DAL_Project;
 using System.Data;
+using GPClassLibrary;
 
 namespace GroupWebProject
 {
     public partial class SiteMaster : MasterPage
-    {
-        private const string AntiXsrfTokenKey = "__AntiXsrfToken";
-        private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
-        private string _antiXsrfTokenValue;
-        private string connString = "Data Source=(local);Initial Catalog=dbSD22GroupProject1;Integrated Security=SSPI";
-
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            // The code below helps to protect against XSRF attacks
-            var requestCookie = Request.Cookies[AntiXsrfTokenKey];
-            Guid requestCookieGuidValue;
-            if (requestCookie != null && Guid.TryParse(requestCookie.Value, out requestCookieGuidValue))
-            {
-                // Use the Anti-XSRF token from the cookie
-                _antiXsrfTokenValue = requestCookie.Value;
-                Page.ViewStateUserKey = _antiXsrfTokenValue;
-            }
-            else
-            {
-                // Generate a new Anti-XSRF token and save to the cookie
-                _antiXsrfTokenValue = Guid.NewGuid().ToString("N");
-                Page.ViewStateUserKey = _antiXsrfTokenValue;
-
-                var responseCookie = new HttpCookie(AntiXsrfTokenKey)
-                {
-                    HttpOnly = true,
-                    Value = _antiXsrfTokenValue
-                };
-                if (FormsAuthentication.RequireSSL && Request.IsSecureConnection)
-                {
-                    responseCookie.Secure = true;
-                }
-                Response.Cookies.Set(responseCookie);
-            }
-
-            Page.PreLoad += master_Page_PreLoad;
-        }
-
-        protected void master_Page_PreLoad(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                // Set Anti-XSRF token
-                ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
-                ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;
-            }
-            else
-            {
-                // Validate the Anti-XSRF token
-                if ((string)ViewState[AntiXsrfTokenKey] != _antiXsrfTokenValue
-                    || (string)ViewState[AntiXsrfUserNameKey] != (Context.User.Identity.Name ?? String.Empty))
-                {
-                    throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
-                }
-            }
-        }
-
+    {        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                DataSet ds = new DataSet();
-                DAL myDAL = new DAL(connString);
-                ds = myDAL.ExecuteProcedure("spGetConsoleByID");
-                ddlSearch.DataSource = ds;
-                ddlSearch.DataTextField = "ConsoleName";
-                ddlSearch.DataValueField = "ConsoleID";
+                GameConsole c = new GameConsole();
+                ddlSearch.DataTextField = c.ConsoleName;
+                ddlSearch.DataValueField= c.ConsoleID.ToString();
                 ddlSearch.DataBind();
+
+                if (Security.IsClientAdmin())
+                {
+                    lbName.Text = Security.CurrentClient.FirstName;
+                    User.Visible = true;
+                    Default.Visible = false;
+                }
+                else if (Security.IsClientLoggedIn())
+                {
+                    lbName.Text = Security.CurrentClient.FirstName;
+                    User.Visible = true;
+                    hlAdmin.Visible = false;
+                    Default.Visible = false;
+                }
+                else
+                {
+                    User.Visible = false;
+                }
+               
             }
         }
 
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        protected void lbLogout_Click1(object sender, EventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Security.LogOut();
+            Response.Redirect("~/Default.aspx");
         }
     }
 
