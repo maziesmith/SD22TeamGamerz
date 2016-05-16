@@ -157,6 +157,7 @@
     <Content Include="About.aspx" />
     <Content Include="Account\AdminPage.aspx" />
     <Content Include="Account\ManageAccount.aspx" />
+    <Content Include="Account\Register.aspx" />
     <Content Include="Ads.aspx" />
     <Content Include="Categories.aspx" />
     <Content Include="Contact.aspx" />
@@ -286,6 +287,13 @@
     </Compile>
     <Compile Include="Account\ManageAccount.aspx.designer.cs">
       <DependentUpon>ManageAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ads.aspx.cs">
       <DependentUpon>Ads.aspx</DependentUpon>

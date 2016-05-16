@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="w3-row-padding">
-        <div class="w3-third">
+        <div class="w3-third" >
             <asp:Panel ID="Panel1" HorizontalAlign="Center" runat="server">
                 <br />
                 <br />
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="3" DataKeyField="CategoryName" OnItemCommand="DataList1_ItemCommand">
+                <asp:DataList  ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="4" DataKeyField="CategoryName" OnItemCommand="DataList1_ItemCommand">
                     <ItemTemplate>
                         <asp:LinkButton ID="lbCategory" Text='<%# Eval("CategoryName") %>' Height="80px" Width="300px" CssClass="CategoriesButton" runat="server" CommandArgument='<%# Eval("CategoryID") %>'></asp:LinkButton><br />
                     </ItemTemplate>

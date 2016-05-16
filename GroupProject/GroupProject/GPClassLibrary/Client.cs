@@ -74,6 +74,23 @@ namespace GPClassLibrary
             }
             return result;
         }
+
+        public void InsertClient(string FirstName, string LastName, string Address, string City, string PostalCode, string PhoneNumber, string UserName, string Password, string Email, bool IsAdmin)
+        {
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            d.AddParam("FirstName", FirstName);
+            d.AddParam("LastName", LastName);
+            d.AddParam("Address", Address);
+            d.AddParam("City", City);
+            d.AddParam("PostalCode", PostalCode);
+            d.AddParam("PhoneNumber", PhoneNumber);
+            d.AddParam("UserName", UserName);
+            d.AddParam("Password", Password);
+            d.AddParam("Email", Email);
+            d.AddParam("AccessLevel", IsAdmin);
+            DataSet ds = d.ExecuteProcedure("spInsertClient");
+            this.ClientID = Convert.ToInt32(ds.Tables[0].Rows[0]["NewClientID"].ToString());
+        }
     }
 
 }
