@@ -97,7 +97,7 @@ namespace GPClassLibrary
         {
             List<Game> listResults = new List<Game>();
 
-            DAL d = new DAL(connString);
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             d.AddParam("GameID", GameID);
             DataSet ds = d.ExecuteProcedure("spGetGameByID");
             foreach (DataRow row in ds.Tables[0].Rows)
