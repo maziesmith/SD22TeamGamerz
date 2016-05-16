@@ -183,6 +183,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="fonts\Minecraft Evenings.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="GamePage.aspx" />
     <Content Include="Games.aspx" />
     <Content Include="Images\Action\ARCOFTEMPLAR.jpg" />
     <Content Include="Images\Action\BEARINSUPERACTION.jpg" />
@@ -426,6 +427,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GamePage.aspx.cs">
+      <DependentUpon>GamePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GamePage.aspx.designer.cs">
+      <DependentUpon>GamePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games.aspx.cs">
       <DependentUpon>Games.aspx</DependentUpon>

@@ -40,5 +40,10 @@ namespace GroupWebProject
             //dlGames.DataSource = Game.GetGamesByConsoleName(queryName);
             dlGames.DataBind();
         }
+
+        protected void dlGames_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            Response.Redirect("GamePage.aspx?game=" + e.CommandArgument.ToString());
+        }
     }
 }
