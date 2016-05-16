@@ -88,6 +88,12 @@ namespace GroupWebProject
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Session["Search"] = txtSearchBar.Text;
+            Response.Redirect("Games.aspx");
+        }
     }
 
 }

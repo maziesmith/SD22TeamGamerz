@@ -396,5 +396,21 @@ AS BEGIN
     ConsoleID=    @ConsoleID
   WHERE GameID =  @GameID
 END
-
+GO
 --exec spGetConsoleByID
+
+
+--EXEC spGetGameByGameName
+CREATE PROC spGetGameByGameName
+  (
+   @GameID        INT,
+    @GameName      VARCHAR(MAX),
+    @GameImage     VARCHAR(MAX),
+    @GameRating    VARCHAR(MAX),
+    @CategoryID    INT,
+    @ConsoleID     INT
+  )
+  AS BEGIN
+  SELECT GameID,GameName,'./Images/Games/'+GameImage as GameImage,GameRating FROM tbGames WHERE GameName LIKE ISNULL('%'+@GameName+'%',GameName)
+  END
+  GO
