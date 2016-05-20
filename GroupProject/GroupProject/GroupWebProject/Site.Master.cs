@@ -26,13 +26,13 @@ namespace GroupWebProject
 
                 if (Security.IsClientAdmin())
                 {
-                    lbName.Text = Security.CurrentClient.FirstName;
+                    lbName.Text = Security.CurrentClient.UserName;
                     User.Visible = true;
                     Default.Visible = false;
                 }
                 else if (Security.IsClientLoggedIn())
                 {
-                    lbName.Text = Security.CurrentClient.FirstName;
+                    lbName.Text = Security.CurrentClient.UserName;
                     User.Visible = true;
                     hlAdmin.Visible = false;
                     Default.Visible = false;
