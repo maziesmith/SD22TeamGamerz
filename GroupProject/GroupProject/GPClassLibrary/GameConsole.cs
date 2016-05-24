@@ -28,5 +28,14 @@ namespace GPClassLibrary
             d.AddParam("CategoryID", ConsoleID);
             DataSet ds = d.ExecuteProcedure("spGetConsoleByID");
         }
+        public void InsertConsole(string ConsoleName, string ConsoleImage)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            DAL_Project.DAL d = new DAL_Project.DAL(connStr);
+            d.AddParam("ConsoleName", ConsoleName);
+            d.AddParam("ConsoleImage", ConsoleImage);
+            DataSet ds = d.ExecuteProcedure("spInsertConsole");
+           this.ConsoleID = Convert.ToInt32(ds.Tables[0].Rows[0]["NewConsoleID"].ToString());
+        }
     }
 }

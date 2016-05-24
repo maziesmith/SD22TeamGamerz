@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="GroupWebProject.Account.AdminPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="True" CodeBehind="AdminPage.aspx.cs" Inherits="GroupWebProject.Account.AdminPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     
@@ -25,28 +25,33 @@
     </asp:Panel>
         </div>
     <asp:Panel ID="pnlConsoles" Visible="false" runat="server">
-        <asp:GridView ID="gvConsoles" runat="server" AutoGenerateColumns="false" DataKeyNames="ConsoleID" DataSourceID="SqlDataSource4" AllowPaging="true" AllowSorting="true">
+        <asp:GridView ID="gvConsoles" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="ConsoleID" AllowPaging="True" AllowSorting="True">
             <Columns>
-                <asp:CommandField ShowDeleteButton="true" ShowEditButton="true" />
-                <asp:BoundField DataField="ConsoleID" HeaderText="ConsoleID" ReadOnly="true" InsertVisible="false" SortExpression="ConsoleID" />
-                <asp:BoundField DataField="ConsoleName" HeaderText="ConsoleName" SortExpression="ConsoleName" />
-                <asp:BoundField DataField="ConsoleImage" HeaderText="ConsoleImage" SortExpression="ConsoleImage" />
+                <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"></asp:CommandField>
+                <asp:BoundField DataField="ConsoleID" HeaderText="ConsoleID" ReadOnly="True" InsertVisible="False" SortExpression="ConsoleID"></asp:BoundField>
+                <asp:BoundField DataField="ConsoleName" HeaderText="ConsoleName" SortExpression="ConsoleName"></asp:BoundField>
+                <asp:ImageField HeaderText="ConsoleImage" DataImageUrlField="ConsoleImage" ControlStyle-Width="100px" ControlStyle-Height="100px" DataImageUrlFormatString="Images/Consoles/{0}" SortExpression="ConsoleImage"></asp:ImageField>
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' DeleteCommand="DELETE FROM [tbConsole] WHERE [ConsoleID] = @ConsoleID" InsertCommand="INSERT INTO [tbConsole] ([ConsoleName], [ConsoleImage]) VALUES (@ConsoleName, @ConsoleImage)" SelectCommand="SELECT * FROM [tbConsole]" UpdateCommand="UPDATE [tbConsole] SET [ConsoleName] = @ConsoleName, [ConsoleImage] = @ConsoleImage WHERE [ConsoleID] = @ConsoleID">
-            <DeleteParameters>
+        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' SelectCommand="SELECT [ConsoleID], [ConsoleName], [ConsoleImage] FROM [tbConsole]"  DeleteCommand="DELETE FROM [tbConsole] WHERE [ConsoleID] = @ConsoleID" InsertCommand="INSERT INTO [tbConsole] ([ConsoleName], [ConsoleImage]) VALUES (@ConsoleName, @ConsoleImage)" UpdateCommand="UPDATE [tbConsole] SET [ConsoleName] = @ConsoleName, [ConsoleImage] = @ConsoleImage WHERE [ConsoleID] = @ConsoleID">
+             <DeleteParameters>
                 <asp:Parameter Name="ConsoleID" Type="Int32"></asp:Parameter>
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="ConsoleName" Type="String"></asp:Parameter>
-                <asp:Parameter Name="ConsoleImage" Type="String" />
+                <asp:Parameter Name="ConsoleImage" Type="String"></asp:Parameter>
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="ConsoleName" Type="String"></asp:Parameter>
-                <asp:Parameter Name="ConsoleImage" Type="String" />
-                <asp:Parameter Name="ConsoleID" Type="Int32" />
+                <asp:Parameter Name="ConsoleImage" Type="String"></asp:Parameter>
+                <asp:Parameter Name="ConsoleID" Type="Int32"></asp:Parameter>
             </UpdateParameters>
         </asp:SqlDataSource>
+        <asp:Button ID="btnADd" runat="server" Text="Add New Console" OnClick="btnADd_Click" />
+        
+          <asp:TextBox ID="tbConsole" runat="server"></asp:TextBox>
+          <asp:FileUpload ID="fuImagePath" runat="server" />
+
     </asp:Panel>
     <asp:Panel ID="pnlGames" Visible="false" runat="server">
         <asp:GridView ID="gvGames" runat="server" AutoGenerateColumns="false" DataKeyNames="GameID" DataSourceID="SqlDataSource2" AllowPaging="true" AllowSorting="true">
@@ -104,7 +109,7 @@
         </asp:SqlDataSource>
     </asp:Panel>
     <asp:Panel ID="pnlAccounts" Visible="false" runat="server">
-        <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" DataKeyNames="ClientID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">
+        <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" DataKeyNames="ClientID" DataSourceID="SqlDataSource4" AllowPaging="True" AllowSorting="True">
             <Columns>
                 <asp:CommandField  ShowDeleteButton="True" ShowEditButton="True" ></asp:CommandField>
                 <asp:BoundField DataField="ClientID" HeaderText="ClientID" ReadOnly="True"  InsertVisible="False" SortExpression="ClientID"></asp:BoundField>
@@ -120,7 +125,7 @@
                 <asp:CheckBoxField DataField="AccessLevel" HeaderText="AccessLevel" SortExpression="AccessLevel"></asp:CheckBoxField>
             </Columns>
         </asp:GridView>
-          <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' DeleteCommand="DELETE FROM [tbClient] WHERE [ClientID] = @ClientID" InsertCommand="INSERT INTO [tbClient] ([FirstName], [LastName], [Address], [City], [PhoneNumber], [UserName], [Password], [AccessLevel]) VALUES (@FirstName, @LastName, @Address, @City, @PostalCode, @PhoneNumber, @UserName, @Password, @Email, @AccessLevel)" SelectCommand="SELECT * FROM [tbClient]" UpdateCommand="UPDATE [tbClient] SET [FirstName] = @FirstName, [LastName] = @LastName, [Address] = @Address, [City] = @City, [PostalCode] = @PostalCode, [PhoneNumber] = @PhoneNumber, [UserName] = @UserName, [Password] = @Password, [Email] = @Email, [AccessLevel] = @AccessLevel WHERE [ClientID] = @ClientID">
+          <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' DeleteCommand="DELETE FROM [tbClient] WHERE [ClientID] = @ClientID" InsertCommand="INSERT INTO [tbClient] ([FirstName], [LastName], [Address], [City], [PhoneNumber], [UserName], [Password], [AccessLevel]) VALUES (@FirstName, @LastName, @Address, @City, @PostalCode, @PhoneNumber, @UserName, @Password, @Email, @AccessLevel)" SelectCommand="SELECT * FROM [tbClient]" UpdateCommand="UPDATE [tbClient] SET [FirstName] = @FirstName, [LastName] = @LastName, [Address] = @Address, [City] = @City, [PostalCode] = @PostalCode, [PhoneNumber] = @PhoneNumber, [UserName] = @UserName, [Password] = @Password, [Email] = @Email, [AccessLevel] = @AccessLevel WHERE [ClientID] = @ClientID">
             <DeleteParameters>
                 <asp:Parameter Name="ClientID" Type="Int32"></asp:Parameter>
             </DeleteParameters>

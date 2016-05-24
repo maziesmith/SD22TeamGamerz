@@ -41,6 +41,13 @@ CREATE TABLE tbGames
     CategoryID    INT FOREIGN KEY REFERENCES tbCategory(CategoryID),
     ConsoleID     INT FOREIGN KEY REFERENCES tbConsole(ConsoleID)
   )
+CREATE TABLE tbAds
+  (
+	AdsID		  INT IDENTITY (1,1) PRIMARY KEY,
+	AdsTitle	  VARCHAR(MAX),
+	AdsDesc		  VARCHAR(MAX),
+	GameID		  INT FOREIGN KEY REFERENCES tbGames(GameID),
+  )
 
 --NEED SOME INSERTS HERE FOR TESTING
 
@@ -132,6 +139,27 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('Lets Play Baseball','lpb.jpg',2,7,2),
   ('NBA 2k16','nba2k16.jpg',1,7,2),
   ('Soccer Man','SoccerMan.png',2,7,1)
+GO
+CREATE PROC spInsertAds
+  (
+    @AdsTitle		VARCHAR(MAX),
+	@AdsDesc		VARCHAR(MAX),
+	@GameID			INT
+  )
+  AS BEGIN
+  INSERT INTO tbAds(AdsTitle, AdsDesc, GameID) values
+				   (@AdsTitle, @AdsDesc, @GameID)
+  SELECT SCOPE_IDENTITY() AS 'NewAdsID'
+  END
+GO
+CREATE PROC spGetAds
+(
+	@AdsID INT = NULL
+)
+AS BEGIN
+	SELECT * FROM tbAds
+	WHERE AdsID = ISNULL(@AdsID, AdsID)
+END
 GO
 CREATE PROC spLogin
   (
@@ -236,7 +264,6 @@ AS BEGIN
   WHERE ConsoleID = ISNULL(@ConsoleID, ConsoleID)
 END
 GO
-
 CREATE PROC spGetGameByConsoleName
 (
 	@ConsoleName varchar(MAX) = null
