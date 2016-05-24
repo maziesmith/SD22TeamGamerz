@@ -94,13 +94,13 @@ namespace GroupWebProject.Account {
         protected global::System.Web.UI.WebControls.Panel pnlAccounts;
         
         /// <summary>
-        /// GridView1 control.
+        /// gvAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvAccount;
         
         /// <summary>
         /// SqlDataSource1 control.
