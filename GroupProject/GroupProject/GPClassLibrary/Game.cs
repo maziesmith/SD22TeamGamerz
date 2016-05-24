@@ -29,10 +29,10 @@ namespace GPClassLibrary
 
             d.AddParam("CategoryID", CategoryID);
 
-            if (CategoryID != null)
-            {
-            d.AddParam("GameID", CategoryID);
-            }
+            //if (CategoryID != null)
+            //{
+            //d.AddParam("GameID", CategoryID);
+            //}
 
             DataSet ds = d.ExecuteProcedure("spGetGameByCategoryID");
 

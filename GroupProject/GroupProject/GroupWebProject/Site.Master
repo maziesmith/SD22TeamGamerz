@@ -68,9 +68,9 @@
                     </asp:PlaceHolder>
                     <asp:PlaceHolder ID="User" Visible="false" runat="server">
                     <div class="nav navbar-nav navbar-right">
-                        <asp:HyperLink  CssClass="navbar-brand" ID="hlManageAccount" NavigateUrl="~/Account/ManageAccount" runat="server">Hello 
+                        <asp:LinkButton CssClass="navbar-brand" ID="lbManageAccount" runat="server" OnClick="lbManageAccount_Click">Hello 
                             <asp:Label ID="lbName" runat="server" Text=""></asp:Label>
-                        </asp:HyperLink>
+                        </asp:LinkButton>
                         <asp:HyperLink  CssClass="navbar-brand" ID="hlAdmin" NavigateUrl="~/Account/AdminPage" runat="server">Admin Page</asp:HyperLink>
                         <asp:LinkButton  CssClass="navbar-brand" ID="lbLogout" OnClick="lbLogout_Click1" runat="server">Logout</asp:LinkButton>
                     </div>
