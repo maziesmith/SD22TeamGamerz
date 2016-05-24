@@ -25,14 +25,83 @@
     </asp:Panel>
         </div>
     <asp:Panel ID="pnlConsoles" Visible="false" runat="server">
+        <asp:GridView ID="gvConsoles" runat="server" AutoGenerateColumns="false" DataKeyNames="ConsoleID" DataSourceID="SqlDataSource4" AllowPaging="true" AllowSorting="true">
+            <Columns>
+                <asp:CommandField ShowDeleteButton="true" ShowEditButton="true" />
+                <asp:BoundField DataField="ConsoleID" HeaderText="ConsoleID" ReadOnly="true" InsertVisible="false" SortExpression="ConsoleID" />
+                <asp:BoundField DataField="ConsoleName" HeaderText="ConsoleName" SortExpression="ConsoleName" />
+                <asp:BoundField DataField="ConsoleImage" HeaderText="ConsoleImage" SortExpression="ConsoleImage" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' DeleteCommand="DELETE FROM [tbConsole] WHERE [ConsoleID] = @ConsoleID" InsertCommand="INSERT INTO [tbConsole] ([ConsoleName], [ConsoleImage]) VALUES (@ConsoleName, @ConsoleImage)" SelectCommand="SELECT * FROM [tbConsole]" UpdateCommand="UPDATE [tbConsole] SET [ConsoleName] = @ConsoleName, [ConsoleImage] = @ConsoleImage WHERE [ConsoleID] = @ConsoleID">
+            <DeleteParameters>
+                <asp:Parameter Name="ConsoleID" Type="Int32"></asp:Parameter>
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="ConsoleName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="ConsoleImage" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="ConsoleName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="ConsoleImage" Type="String" />
+                <asp:Parameter Name="ConsoleID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </asp:Panel>
     <asp:Panel ID="pnlGames" Visible="false" runat="server">
+        <asp:GridView ID="gvGames" runat="server" AutoGenerateColumns="false" DataKeyNames="GameID" DataSourceID="SqlDataSource2" AllowPaging="true" AllowSorting="true">
+            <Columns>
+                <asp:CommandField ShowDeleteButton="true" ShowEditButton="true" />
+                <asp:BoundField DataField="GameID" HeaderText="ClientID" ReadOnly="true" InsertVisible="false" SortExpression="GameID" />
+                <asp:BoundField DataField="GameName" HeaderText="GameName" SortExpression="GameName" />
+                <asp:BoundField DataField="GameImage" HeaderText="GameImage" SortExpression="GameImage" />
+                <asp:BoundField DataField="GameRating" HeaderText="GameRating" SortExpression="GameRating" />
+                <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" SortExpression="CategoryID" />
+                <asp:BoundField DataField="ConsoleID" HeaderText="ConsoleID" SortExpression="ConsoleID" />
 
-
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' DeleteCommand="DELETE FROM [tbGames] WHERE [GameID] = @GameID" InsertCommand="INSERT INTO [tbGames] ([GameName], [GameImage], [GameRating], [CategoryID], [ConsoleID]) VALUES (@GameName, @GameImage, @GameRating, @CategoryID, @ConsoleID)" SelectCommand="SELECT * FROM [tbGames]" UpdateCommand="UPDATE [tbGames] SET [GameName] = @GameName, [GameImage] = @GameImage, [GameRating] = @GameRating, [CategoryID] = @CategoryID, [ConsoleID] = @ConsoleID WHERE [GameID] = @GameID">
+            <DeleteParameters>
+                <asp:Parameter Name="ClientID" Type="Int32"></asp:Parameter>
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="GameName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="GameImage" Type="String"></asp:Parameter>
+                <asp:Parameter Name="GameRating" Type="Int32"></asp:Parameter>
+                <asp:Parameter Name="CategoryID" Type="Int32"></asp:Parameter>
+                <asp:Parameter Name="ConsoleID" Type="Int32"></asp:Parameter>
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="GameName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="GameImage" Type="String"></asp:Parameter>
+                <asp:Parameter Name="GameRating" Type="Int32"></asp:Parameter>
+                <asp:Parameter Name="CategoryID" Type="Int32"></asp:Parameter>
+                <asp:Parameter Name="ConsoleID" Type="Int32"></asp:Parameter>
+                <asp:Parameter Name="GameID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </asp:Panel>
     <asp:Panel ID="pnlCategories" Visible="false" runat="server">
-
-
+        <asp:GridView ID="gvCategories" runat="server" AutoGenerateColumns="false" DataKeyNames="CategoryID" DataSourceID="SqlDataSource3" AllowPaging="true" AllowSorting="true">
+            <Columns>
+                <asp:CommandField ShowDeleteButton="true" ShowEditButton="true" />
+                <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" ReadOnly="true" InsertVisible="false" SortExpression="CategoryID" />
+                <asp:BoundField DataField="CategoryName" HeaderText="CategoryName" SortExpression="CategoryName" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' DeleteCommand="DELETE FROM [tbCategory] WHERE [CategoryID] = @CategoryID" InsertCommand="INSERT INTO [tbCategory] ([CategoryName]) VALUES (@CategoryName)" SelectCommand="SELECT * FROM [tbCategory]" UpdateCommand="UPDATE [tbCategory] SET [CategoryName] = @CategoryName WHERE [CategoryID] = @CategoryID">
+            <DeleteParameters>
+                <asp:Parameter Name="CategoryID" Type="Int32"></asp:Parameter>
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="CategoryName" Type="String"></asp:Parameter>
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="CategoryName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="CategoryID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </asp:Panel>
     <asp:Panel ID="pnlAccounts" Visible="false" runat="server">
         <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" DataKeyNames="ClientID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">

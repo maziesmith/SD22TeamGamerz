@@ -67,6 +67,24 @@ namespace GroupWebProject.Account {
         protected global::System.Web.UI.WebControls.Panel pnlConsoles;
         
         /// <summary>
+        /// gvConsoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvConsoles;
+        
+        /// <summary>
+        /// SqlDataSource4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+        
+        /// <summary>
         /// pnlGames control.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,24 @@ namespace GroupWebProject.Account {
         protected global::System.Web.UI.WebControls.Panel pnlGames;
         
         /// <summary>
+        /// gvGames control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvGames;
+        
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        
+        /// <summary>
         /// pnlCategories control.
         /// </summary>
         /// <remarks>
@@ -83,6 +119,24 @@ namespace GroupWebProject.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlCategories;
+        
+        /// <summary>
+        /// gvCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCategories;
+        
+        /// <summary>
+        /// SqlDataSource3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
         
         /// <summary>
         /// pnlAccounts control.

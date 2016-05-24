@@ -1,17 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageAccount.aspx.cs" Inherits="GroupWebProject.Account.ManageAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="jumbotron">
+
+    </div>
     <div>
         <table>
             <tr>
                 <td>
-                    <asp:LinkButton ID="lbEditAccount" runat="server">Edit Account</asp:LinkButton>
+                    <asp:LinkButton ID="lbEditAccount" runat="server" OnClick="lbEditAccount_Click" >Edit Account</asp:LinkButton>
 
                 </td>
             </tr>
         </table>
     </div>
-    <div visible="true">
+    <div visible="false" ID="divEditUser" runat="server">
         <asp:Label ID="lblClientID" runat="server" Text="" />
         <table>
             <tr>

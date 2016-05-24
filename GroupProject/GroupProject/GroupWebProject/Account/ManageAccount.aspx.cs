@@ -12,6 +12,14 @@ namespace GroupWebProject.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (ViewState["editIsVisible"] != null)
+            {
+                if ((bool)ViewState["editIsVisible"] == true)
+                {
+
+                }
+                divEditUser.Visible = true;
+            }
             if (!IsPostBack)
             {
                 string userID = Request.QueryString["user"];
@@ -42,7 +50,14 @@ namespace GroupWebProject.Account
         {
             Client updateClient = new Client();
             updateClient.UpdateClient(Security.CurrentClient.ClientID.ToString(), txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtCity.Text, txtPostalCode.Text, txtPhoneNumber.Text, lblUserName.Text, Security.CurrentClient.Password, txtEmail.Text, Security.CurrentClient.IsAdmin);
-            Response.Redirect("~/Default.aspx");
+            ViewState["editIsVisible"] = false;
+            Response.Redirect("~/Account/ManageAccount.aspx");
+            
+        }
+
+        protected void lbEditAccount_Click(object sender, EventArgs e)
+        {
+            ViewState["editIsVisible"] = true;
         }
     }
 }

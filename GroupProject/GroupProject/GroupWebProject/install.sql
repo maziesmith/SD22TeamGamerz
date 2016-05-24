@@ -44,7 +44,7 @@ CREATE TABLE tbGames
 
 --NEED SOME INSERTS HERE FOR TESTING
 
---select * from tbClient
+--select * from tbConsole
 
 INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,UserName,Password,Email,AccessLevel)  VALUES
   -- INSERT FOR admin
