@@ -51,6 +51,8 @@ CREATE TABLE tbAds
 
 --NEED SOME INSERTS HERE FOR TESTING
 
+--select * from tbClient
+
 INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,UserName,Password,Email,AccessLevel)  VALUES
   -- INSERT FOR admin
   ('Andrew', 'Leake', '69 Loli Lane','Winnipeg','R2N 4N5','1 204 996 1783',
@@ -184,6 +186,8 @@ AS BEGIN
   WHERE ClientID = ISNULL(@ClientID, ClientID)
 END
 GO
+--exec spGetClientByID @ClientID = 1
+--go
 CREATE PROC spInsertClient
   (
     @FirstName     VARCHAR(MAX) = NULL,

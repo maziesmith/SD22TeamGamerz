@@ -43,17 +43,19 @@ namespace GPClassLibrary
                 result.PostalCode = r["PostalCode"].ToString();
                 result.PhoneNumber = r["PhoneNumber"].ToString();
                 result.UserName = r["UserName"].ToString();
+                result.Password = r["Password"].ToString();
                 result.Email = r["Email"].ToString();
                 result.IsAdmin = (bool)r["AccessLevel"];
             }
             return result;
         }
 
-        public List<Client> GetClient()
+        public List<Client> GetClient(string clientID)
         {
             List<Client> result = new List<Client>();
 
             DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            d.AddParam("ClientID", clientID);
             DataSet ds = d.ExecuteProcedure("spGetClientByID");
 
             foreach (DataRow row in ds.Tables[0].Rows)
@@ -67,6 +69,7 @@ namespace GPClassLibrary
                 c.PostalCode = row["PostalCode"].ToString();
                 c.PhoneNumber = row["PhoneNumber"].ToString();
                 c.UserName = row["UserName"].ToString();
+                c.Password = row["Password"].ToString();
                 c.Email = row["Email"].ToString();
                 c.IsAdmin = (bool)row["AccessLevel"];
 
@@ -90,6 +93,24 @@ namespace GPClassLibrary
             d.AddParam("AccessLevel", IsAdmin);
             DataSet ds = d.ExecuteProcedure("spInsertClient");
             this.ClientID = Convert.ToInt32(ds.Tables[0].Rows[0]["NewClientID"].ToString());
+        }
+
+        public void UpdateClient(string clientID, string FirstName, string LastName, string Address, string City, string PostalCode, string PhoneNumber, string UserName, string Password, string Email, bool IsAdmin)
+        {
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+            d.AddParam("ClientID", clientID);
+            d.AddParam("FirstName", FirstName);
+            d.AddParam("LastName", LastName);
+            d.AddParam("Address", Address);
+            d.AddParam("City", City);
+            d.AddParam("PostalCode", PostalCode);
+            d.AddParam("PhoneNumber", PhoneNumber);
+            d.AddParam("UserName", UserName);
+            d.AddParam("Password", Password);
+            d.AddParam("Email", Email);
+            d.AddParam("AccessLevel", IsAdmin);
+            d.ExecuteProcedure("spUpdateClient");
         }
     }
 

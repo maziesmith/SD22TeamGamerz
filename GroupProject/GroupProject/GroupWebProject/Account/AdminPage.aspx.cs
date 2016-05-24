@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GPClassLibrary;
+using DAL_Project;
+using System.Configuration;
+using System.Data;
+
 
 namespace GroupWebProject.Account
 {
@@ -11,7 +16,17 @@ namespace GroupWebProject.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(!IsPostBack)
+            {
+                if (!Security.IsClientAdmin())
+                {
+                    Response.Redirect("Default.aspx");
+                }
+                else
+                {
+
+                }
+            }
         }
 
         protected void btnConsoles_Click(object sender, EventArgs e)

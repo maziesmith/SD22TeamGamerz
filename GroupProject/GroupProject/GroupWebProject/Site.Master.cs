@@ -56,6 +56,12 @@ namespace GroupWebProject
             Session["Search"] = txtSearchBar.Text;
             Response.Redirect("Games.aspx");
         }
+
+        protected void lbManageAccount_Click(object sender, EventArgs e)
+        {
+            //~/ Account / ManageAccount.aspx ? user =<%# Security.CurrentClient.ID %>'
+            Response.Redirect("~/Account/ManageAccount.aspx?user=" + Security.CurrentClient.ClientID);
+        }
     }
 
 }
