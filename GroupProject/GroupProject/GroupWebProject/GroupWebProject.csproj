@@ -173,6 +173,7 @@
     <Content Include="GamePage.aspx" />
     <Content Include="Games.aspx" />
     <Content Include="Images\aboutus.jpg" />
+    <Content Include="Images\Consoles\NoImage.jpg" />
     <Content Include="Images\Consoles\PC.jpg" />
     <Content Include="Images\Consoles\PS3.jpg" />
     <Content Include="Images\Consoles\PS4.jpg" />

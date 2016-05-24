@@ -8,7 +8,7 @@ using GPClassLibrary;
 using DAL_Project;
 using System.Configuration;
 using System.Data;
-
+using System.IO;
 
 namespace GroupWebProject.Account
 {
@@ -24,11 +24,14 @@ namespace GroupWebProject.Account
                 }
                 else
                 {
-
+                  
                 }
             }
         }
-
+        private void loadConGridView()
+        {
+            gvConsoles.DataBind();
+        }
         protected void btnConsoles_Click(object sender, EventArgs e)
         {
             btnMain.Visible = true;
@@ -66,5 +69,32 @@ namespace GroupWebProject.Account
             btnMain.Visible = false;
             pnlAdmin.Visible = true;
         }
+
+        protected void lbAdd_Click(object sender, EventArgs e)
+        {
+            
+            }
+
+        protected void btnADd_Click(object sender, EventArgs e)
+        {
+            if (tbConsole.Text != "")
+            {
+                if (fuImagePath.HasFile)
+                {
+                    string ImageName = Path.GetFileName(fuImagePath.FileName);
+                    fuImagePath.SaveAs(Server.MapPath("/Images/Consoles") + ImageName);
+                    GameConsole GC = new GameConsole();
+                    GC.InsertConsole(tbConsole.Text, ImageName);
+                    tbConsole.Text = "";
+                }
+                else
+                {
+                    GameConsole GC = new GameConsole();
+                    GC.InsertConsole(tbConsole.Text, "NoImage.jpg");
+                    tbConsole.Text = "";
+                }
+                loadConGridView();          
+        }
+    }
     }
 }
