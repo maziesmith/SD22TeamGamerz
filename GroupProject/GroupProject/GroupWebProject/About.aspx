@@ -13,7 +13,7 @@
 </head>
 <body>
       <div id="about">
-        <asp:Image ID="aboutus" ImageUrl="/Images/aboutus.jpg"  runat="server" Height="500px" Width="800px" />
+        <asp:Image ID="aboutus" ImageUrl="/Images/aboutus.jpg"  runat="server" Height="262px" Width="553px" />
     </div>
   <div class="jumbotron">
     <p></p> 
@@ -23,7 +23,9 @@
       <h3>Our Products</h3>
       <p>teamGamerz is a leading provider of services tailored to the needs of Consoles game who want to maximize their gaming experience. Whether you are looking for game items
           ,Action,Arcade,Adventure etc. Nearly all games can be found here. 
+          
       </p>
+        </p> 
         <p>&nbsp;</p>
       <p>teamGamerz strives to offer the fastest and most reliable service on the web for all your gaming needs. Feel free to contact us 24 hours a day, Our Customer service reps are standing by, waiting to help enhance your gaming experience. </p>
     </div>

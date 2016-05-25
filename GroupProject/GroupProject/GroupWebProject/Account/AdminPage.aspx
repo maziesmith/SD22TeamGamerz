@@ -9,21 +9,21 @@
         <table>
             <tr>
                <td>
-                   <asp:Button ID="btnConsoles" href="#" class="button green"  runat="server" OnClick="btnConsoles_Click" Text="Consoles" />
+                   <asp:Button ID="btnConsoles" href="#" class="button green"  runat="server" OnClick="btnConsoles_Click" Text="Consoles" Height="42px" Width="159px"  />
                </td>
                 <td>
-                    <asp:Button ID="btnGames" href="#" class="button green" runat="server" OnClick="btnGames_Click" Text="Games" />
+                    <asp:Button ID="btnGames" href="#" class="button green" runat="server" OnClick="btnGames_Click" Text="Games" Height="42px" Width="159px"  />
                 </td>
                 <td>
-                    <asp:Button ID="btnCategories" href="#" class="button green" runat="server" OnClick="btnCategories_Click" Text="Categories" />
+                    <asp:Button ID="btnCategories" href="#" class="button green" runat="server" OnClick="btnCategories_Click" Text="Categories" Height="42px" Width="159px"  />
                 </td>
                 <td>
-                    <asp:Button ID="btnAccounts" href="#" class="button green" runat="server" OnClick="btnAccounts_Click" Text="Accounts" />
+                    <asp:Button ID="btnAccounts" href="#" class="button green" runat="server" OnClick="btnAccounts_Click" Text="Accounts" Height="42px" Width="159px" />
                 </td>          
             </tr>
         </table>
     </asp:Panel>
-          <asp:Button ID="btnMain" class="button green" runat="server" Visible="false" OnClick="btnMain_Click" Text="Menu" />
+          <asp:Button ID="btnMain" class="button green" runat="server" Visible="false" OnClick="btnMain_Click" Text="Menu" Height="42px" Width="159px"  />
         </div>
     <asp:Panel ID="pnlConsoles"  Visible="false" runat="server">
         <asp:GridView ID="gvConsoles" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="ConsoleID" AllowPaging="True" AllowSorting="True">
