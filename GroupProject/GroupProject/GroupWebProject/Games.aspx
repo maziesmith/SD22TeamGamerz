@@ -15,7 +15,7 @@
                     <ItemTemplate>
                         <tr class="game-item">
                             <td class="game-item-image">
-                                <asp:ImageButton ID="imgGame" CssClass="game-image-size" runat="server" ImageUrl='<%#String.Format("~/Images/Games/{0}", Eval("GameImage")) %>' CommandArgument='<%# Eval("GameID") %>' CausesValidation="false"  />
+                                <asp:Image ID="imgGame" CssClass="game-image-size" runat="server" ImageUrl='<%#String.Format("~/Images/Games/{0}", Eval("GameImage")) %>' CommandArgument='<%# Eval("GameID") %>' CausesValidation="false"  />
                             </td>
                             <td class="game-item-text">
                                 <asp:LinkButton ID="lbGameName" runat="server" CommandArgument='<%# Eval("GameID") %>'><%# Eval("GameName") %></asp:LinkButton>
