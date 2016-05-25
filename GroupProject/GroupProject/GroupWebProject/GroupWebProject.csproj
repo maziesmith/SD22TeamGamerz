@@ -226,6 +226,7 @@
     <Content Include="Images\Games\WildWasteLand.jpeg" />
     <Content Include="install.sql" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="PostAd.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -360,6 +361,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="PostAd.aspx.cs">
+      <DependentUpon>PostAd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostAd.aspx.designer.cs">
+      <DependentUpon>PostAd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="Site.Master.cs">

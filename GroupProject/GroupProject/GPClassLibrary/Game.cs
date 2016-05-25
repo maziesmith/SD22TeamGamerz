@@ -77,6 +77,40 @@ namespace GPClassLibrary
             return listResults;
         }
 
+        public static List<Game> GetGamesByConsoleName(string ConsoleName, string GameName)
+        {
+            List<Game> listResults = new List<Game>();
+
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+            switch (ConsoleName)
+            {
+                case null:
+                    break;
+                default:
+                    d.AddParam("ConsoleName", ConsoleName);
+                    break;
+            }
+            switch (GameName)
+            {
+                case null:
+                    break;
+                default:
+                    d.AddParam("GameName", GameName);
+                    break;
+            }
+            
+
+            DataSet ds = d.ExecuteProcedure("spQuickSearch");
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                listResults.Add(GetGameFromDataRow(row));
+            }
+
+            return listResults;
+        }
+
         public static List<Game> GetAllGames()
         {
             List<Game> listResults = new List<Game>();
@@ -92,6 +126,24 @@ namespace GPClassLibrary
 
             return listResults;
         }
+
+        //public List<Game> SearchGames(string GameName, int ConsoleID)
+        //{
+        //    List<Game> listResults = new List<Game>();
+
+        //    DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+        //    d.AddParam("GameName", GameName);
+        //    d.AddParam("ConsoleID", ConsoleID);
+        //    DataSet ds = d.ExecuteProcedure("spQuickSearch");
+
+        //    foreach (DataRow row in ds.Tables[0].Rows)
+        //    {
+        //        listResults.Add(GetGameFromDataRow(row));
+        //    }
+
+        //    return listResults;
+        //}
 
         public static List<Game> GetGameByID(string GameID)
         {

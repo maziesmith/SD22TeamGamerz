@@ -20,11 +20,7 @@ namespace GroupWebProject.Account
             {
                 if (!Security.IsClientAdmin())
                 {
-                    Response.Redirect("Default.aspx");
-                }
-                else
-                {
-                  
+                    Response.Redirect("../Default.aspx");
                 }
             }
         }

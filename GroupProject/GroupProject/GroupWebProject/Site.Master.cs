@@ -19,9 +19,9 @@ namespace GroupWebProject
         {
             if (!IsPostBack)
             {
-                GameConsole c = new GameConsole();
-                ddlSearch.DataTextField = c.ConsoleName;
-                ddlSearch.DataValueField= c.ConsoleID.ToString();
+                ddlSearch.DataSource = GameConsole.GetAllConsoles();
+                ddlSearch.DataTextField = "ConsoleName";
+                ddlSearch.DataValueField = "ConsoleID";
                 ddlSearch.DataBind();
 
                 if (Security.IsClientAdmin())
@@ -53,8 +53,7 @@ namespace GroupWebProject
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Session["Search"] = txtSearchBar.Text;
-            Response.Redirect("Games.aspx");
+            Response.Redirect("Games.aspx?game=" + txtSearchBar.Text + "&console=" + ddlSearch.SelectedItem);
         }
 
         protected void lbManageAccount_Click(object sender, EventArgs e)

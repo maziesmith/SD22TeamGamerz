@@ -148,7 +148,12 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('Lets Play Baseball','lpb.jpg',2,7,2),
   ('NBA 2k16','nba2k16.jpg',1,7,2),
   ('Soccer Man','SoccerMan.png',2,7,1)
+
+INSERT INTO tbClientGames(ClientID, GameID) values
+	(8, 10),
+	(5, 9)
 GO
+--select FirstName, LastName, GameName from tbClientGames join tbClient on tbClient.ClientID = tbClientGames.ClientID join tbGames on tbGames.GameID = tbClientGames.GameID
 CREATE PROC spInsertAds
   (
     @AdsTitle		VARCHAR(MAX),
@@ -456,3 +461,20 @@ CREATE PROC spGetGameByGameName
   SELECT GameID,GameName,'./Images/Games'+GameImage as GameImage,GameRating FROM tbGames WHERE GameName LIKE ISNULL('%'+@GameName+'%',GameName)
   END
   GO
+
+create proc spQuickSearch
+(
+	@GameName varchar(MAX) = null,
+	@ConsoleName varchar(MAX)
+)
+as begin
+select * FROM tbGames
+join tbConsole on tbGames.ConsoleID = tbConsole.ConsoleID
+join tbCategory on tbCategory.CategoryID = tbGames.CategoryID
+WHERE GameName LIKE ISNULL('%'+ @GameName+ '%',GameName) and @ConsoleName = ConsoleName
+end
+go
+
+--GameID,GameName, './Images/Games'+ GameImage as GameImage, GameRating, ConsoleName, CategoryName
+--exec spQuickSearch @GameName = 'Sam', @ConsoleName = 'PC'
+--exec spQuickSearch @ConsoleName = 'PC'

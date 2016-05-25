@@ -24,9 +24,11 @@ namespace GroupWebProject
                             int gameQueryInt = Convert.ToInt32(Request.QueryString["category"]);
                             dlGames.DataSource = Game.GetGamesByCategoryID(gameQueryInt);
                             break;
+                        case "game":
                         case "console":
+                            string gameQueryName = Request.QueryString["game"];
                             string gameQueryString = Request.QueryString["console"];
-                            dlGames.DataSource = Game.GetGamesByConsoleName(gameQueryString);
+                            dlGames.DataSource = Game.GetGamesByConsoleName(gameQueryString, gameQueryName);
                             break;
                         default:
                             break;

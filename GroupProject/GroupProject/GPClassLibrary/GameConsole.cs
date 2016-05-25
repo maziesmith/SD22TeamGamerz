@@ -37,5 +37,27 @@ namespace GPClassLibrary
             DataSet ds = d.ExecuteProcedure("spInsertConsole");
            this.ConsoleID = Convert.ToInt32(ds.Tables[0].Rows[0]["NewConsoleID"].ToString());
         }
+
+        public static List<GameConsole> GetAllConsoles()
+        {
+            List<GameConsole> resultList = new List<GameConsole>();
+
+            string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            DAL_Project.DAL d = new DAL_Project.DAL(connStr);
+            DataSet ds = d.ExecuteProcedure("spGetConsoleByID");
+
+            foreach (DataRow console in ds.Tables[0].Rows)
+            {
+                GameConsole newConsole = new GameConsole()
+                {
+                    ConsoleID = int.Parse(console["ConsoleID"].ToString()),
+                    ConsoleName = console["ConsoleName"].ToString()
+                };
+
+                resultList.Add(newConsole);
+            }
+
+            return resultList;
+        }
     }
 }

@@ -11,14 +11,15 @@ namespace GroupWebProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Security.IsClientAdmin())
-            {
-                Response.Redirect("AdminPage.aspx");
-            }
-            else if (Security.IsClientLoggedIn())
-            {
-                Response.Redirect("Default.aspx");
-            }
+                if (Security.IsClientAdmin())
+                {
+                    Response.Redirect("AdminPage.aspx");
+                }
+                else if (Security.IsClientLoggedIn())
+                {
+                    Response.Redirect("Default.aspx");           
+                }
+            
         }
 
         protected void LogIn(object sender, EventArgs e)
@@ -28,6 +29,10 @@ namespace GroupWebProject
                 try
                 {
                     Security.Login(UserName.Text, Password.Text);
+                    if (Session["previousUrl"] != null)
+                    {
+                        Response.Redirect(Session["previousUrl"].ToString());
+                    }
                     if (Security.IsClientAdmin())
                     {
                         Response.Redirect("~/Account/AdminPage.aspx");

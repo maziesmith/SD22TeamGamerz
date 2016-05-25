@@ -84,16 +84,6 @@
                 <asp:DropDownList ID="ddlSearch" runat="server"></asp:DropDownList>
                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
             </div>
-                <div class="nav navbar-nav navbar-right">
-                    <%//there's nothing in the database for location right now %>
-                    <asp:DropDownList ID="ddlLocation" runat="server">
-                        <asp:ListItem>Winnipeg</asp:ListItem>
-                        <asp:ListItem>Selkirk</asp:ListItem>
-                        <asp:ListItem>Flin Flon</asp:ListItem>
-                        <asp:ListItem>Thompson</asp:ListItem>
-                        <asp:ListItem>Brandon</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
             </div>
         </div>
         <div class="container body-content">

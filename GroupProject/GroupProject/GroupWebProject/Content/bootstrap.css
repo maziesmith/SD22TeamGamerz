@@ -6851,3 +6851,8 @@ game-item-image {
     width: 70%;
     text-align: left;
 }
+
+.game-page-image {
+    width: 250px;
+    height: 350px;
+}

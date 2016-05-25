@@ -36,7 +36,7 @@ namespace GPClassLibrary
                 Category newCategory = new Category()
                 {
                     CategoryID = int.Parse(category["CategoryID"].ToString()),
-                    CategoryName = category["Name"].ToString()
+                    CategoryName = category["CategoryName"].ToString()
                 };
 
                 resultList.Add(newCategory);
