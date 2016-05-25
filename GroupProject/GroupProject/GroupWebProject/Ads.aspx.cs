@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL_Project;
 using GPClassLibrary;
+using System.Configuration;
+using System.Data;
 
 namespace GroupWebProject
 {
@@ -13,7 +15,17 @@ namespace GroupWebProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(!IsPostBack)
+            {
+                loadAds();
+            }
+        }
+        public void loadAds()
+        {
+            var d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            ViewState["gv"] = d.ExecuteProcedure("spGetAds").Tables[0];
+            gvAds.DataSource = (DataTable)ViewState["gv"];
+            gvAds.DataBind();
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -21,14 +33,18 @@ namespace GroupWebProject
             if (Security.IsClientAdmin())
             {
                 AdsClass a = new AdsClass();
-                a.InsertAds(txtTitle.Text, txtDescription.Text, Convert.ToInt32(ddlGames.SelectedValue));
-                Response.Redirect("Ads.aspx");
+                a.InsertAds(txtTitle.Text, txtDescription.Text, Convert.ToInt32(ddlGames.SelectedValue), Security.CurrentClient.ClientID);
+                loadAds();
+                pnlGridAds.Visible = true;
+                pnlInsertAdd.Visible = false;
             }
             else if (Security.IsClientLoggedIn())
             {
                 AdsClass a = new AdsClass();
-                a.InsertAds(txtTitle.Text, txtDescription.Text, Convert.ToInt32(ddlGames.SelectedValue));
-                Response.Redirect("Ads.aspx");
+                a.InsertAds(txtTitle.Text, txtDescription.Text, Convert.ToInt32(ddlGames.SelectedValue), Security.CurrentClient.ClientID);
+                loadAds();
+                pnlGridAds.Visible = true;
+                pnlInsertAdd.Visible = false;
             }
             else
             {

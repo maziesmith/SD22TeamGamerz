@@ -1,16 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ads.aspx.cs" Inherits="GroupWebProject.Ads" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h2> Adverstisement</h2>
     <asp:Panel ID="pnlGridAds" runat="server">
-     <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="AdsID">
-        <Columns>
-            <asp:BoundField DataField="AdsID" HeaderText="AdsID" ReadOnly="True" InsertVisible="False" SortExpression="AdsID"></asp:BoundField>
-            <asp:BoundField DataField="AdsTitle" HeaderText="AdsTitle" SortExpression="AdsTitle"></asp:BoundField>
-            <asp:BoundField DataField="AdsDesc" HeaderText="AdsDesc" SortExpression="AdsDesc"></asp:BoundField>
-            <asp:BoundField DataField="GameID" HeaderText="GameID" SortExpression="GameID"></asp:BoundField>
-        </Columns>
+     <asp:GridView ID="gvAds" runat="server">
+
     </asp:GridView>
-    <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' SelectCommand="SELECT * FROM [tbAds]"></asp:SqlDataSource>
      
     <asp:LinkButton ID="lbAdd" runat="server" CssClass="btn btn-default" OnClick="lbAdd_Click" >Add Advertisment</asp:LinkButton>
         
@@ -44,7 +38,7 @@
              <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' SelectCommand="SELECT [GameName], [GameID] FROM [tbGames]"></asp:SqlDataSource>
             </div>
        </div>
-
+        <br />
         <div class ="form-group">
              <div class="col-md-offset-2 col-md-10">
             <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-default" Text="Add Advertisement" OnClick="btnAdd_Click" />

@@ -24,12 +24,13 @@ namespace GPClassLibrary
             DataSet ds = d.ExecuteProcedure("spGetAds");
         }
 
-        public void InsertAds(string Title, string Description, int GameID)
+        public void InsertAds(string Title, string Description, int GameID, int ClientID)
         {
             DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             d.AddParam("AdsTitle", Title);
             d.AddParam("AdsDesc", Description);
             d.AddParam("GameID", GameID);
+            d.AddParam("ClientID", ClientID);
             DataSet ds = d.ExecuteProcedure("spInsertAds");
             this.AdsID = Convert.ToInt32(ds.Tables[0].Rows[0]["NewAdsID"].ToString());
         }

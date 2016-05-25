@@ -47,6 +47,7 @@ CREATE TABLE tbAds
 	AdsTitle	  VARCHAR(MAX),
 	AdsDesc		  VARCHAR(MAX),
 	GameID		  INT FOREIGN KEY REFERENCES tbGames(GameID),
+	ClientID	  INT FOREIGN KEY REFERENCES tbClient(ClientID)
   )
 
 CREATE TABLE tbClientGames
@@ -152,10 +153,10 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('NBA 2k16','nba2k16.jpg',1,7,2),
   ('Soccer Man','SoccerMan.png',2,7,1)
 
-  INSERT INTO tbAds (AdsTitle, AdsDesc , GameID) VALUES
-('Selling PSP game','Msg me here 204 551-5555 for more info.',1),
-('Buying Bear in super Action','100$ or less contact me in my # 204 888 8888',2),
-('looking for psp game','50$ or less',16)
+  INSERT INTO tbAds (AdsTitle, AdsDesc , GameID, ClientID) VALUES
+('Selling PSP game','Msg me here 204 551-5555 for more info.',1,1),
+('Buying Bear in super Action','100$ or less contact me in my # 204 888 8888',2,2),
+('looking for psp game','50$ or less',16,3)
 INSERT INTO tbClientGames(ClientID, GameID) values
 	(8, 10),
 	(5, 9)
@@ -165,11 +166,12 @@ CREATE PROC spInsertAds
   (
     @AdsTitle		VARCHAR(MAX),
 	@AdsDesc		VARCHAR(MAX),
-	@GameID			INT
+	@GameID			INT,
+	@ClientID		INT
   )
   AS BEGIN
-  INSERT INTO tbAds(AdsTitle, AdsDesc, GameID) values
-				   (@AdsTitle, @AdsDesc, @GameID)
+  INSERT INTO tbAds(AdsTitle, AdsDesc, GameID, ClientID) values
+				   (@AdsTitle, @AdsDesc, @GameID, @ClientID)
   SELECT SCOPE_IDENTITY() AS 'NewAdsID'
   END
 GO
@@ -178,7 +180,10 @@ CREATE PROC spGetAds
 	@AdsID INT = NULL
 )
 AS BEGIN
-	SELECT tbAds.AdsTitle,tbAds.AdsDesc,tbAds.GameID FROM tbAds join tbGames on tbAds.GameID = tbGames.GameName
+	SELECT tbAds.AdsTitle,tbAds.AdsDesc,tbGames.GameName, UserName 
+	FROM tbAds 
+		join tbGames on tbAds.GameID = tbGames.GameID
+		join tbClient on tbAds.ClientID = tbClient.ClientID
 	WHERE tbAds.AdsID = ISNULL(@AdsID, AdsID)
 END
 GO
