@@ -23,6 +23,7 @@
             </tr>
         </table>
     </asp:Panel>
+          <asp:Button ID="btnMain" class="button green" runat="server" Visible="false" OnClick="btnMain_Click" Text="Menu" />
         </div>
     <asp:Panel ID="pnlConsoles"  Visible="false" runat="server">
         <asp:GridView ID="gvConsoles" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="ConsoleID" AllowPaging="True" AllowSorting="True">
@@ -156,5 +157,5 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     </asp:Panel>
-    <asp:Button ID="btnMain" runat="server" Visible="false" OnClick="btnMain_Click" Text="Menu" />
+  
 </asp:Content>
