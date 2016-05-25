@@ -53,7 +53,7 @@ CREATE TABLE tbClientGames
 (
 	ClientGameID INT IDENTITY (1,1) PRIMARY KEY,
 	ClientID INT FOREIGN KEY REFERENCES tbClient(ClientID),
-	GameID INT FOREIGN KEY REFERENCES tbGame(GameID)
+	GameID INT FOREIGN KEY REFERENCES tbGames(GameID)
 )
 
 --NEED SOME INSERTS HERE FOR TESTING
@@ -78,7 +78,7 @@ INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,Us
   ('Naruto', 'Uzumaki', '123 Konoha Street','Konoha','56453','1555 555 5555',
    'naruto1','1234','IWannaBeTheHokage@Hokage.com', 0),
    ('Char', 'Aznable', '333 Zeon Street', 'Side 3', '33333', '1333 333 333',
-   'redComet333', 'redcomet@zeon.com', 0)
+   'redComet333', 'siegzeon', 'redcomet@zeon.com', 0)
 
 INSERT INTO  tbConsole(ConsoleName, ConsoleImage) VALUES
   ('PSP','PSP.jpg'),
