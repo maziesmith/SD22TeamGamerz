@@ -28,14 +28,14 @@
   
   
 	height:2em;
-	padding:150px 450px;
+	
 	margin:20px 40px;
 	cursor:pointer;
-	display:inline-block;
+	padding:50px 50px;
 	color:#FFF;
 	font-size:1em;
-	border:px solid #eee;
-	background:#eee;
+	 
+	background-color: dimgrey;
 	border-radius:4px;
 	line-height:2em;
 	border:1px solid #aaa;
