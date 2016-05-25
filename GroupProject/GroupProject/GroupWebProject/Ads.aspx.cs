@@ -13,14 +13,46 @@ namespace GroupWebProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            AdsClass a = new AdsClass();
-            a.InsertAds(txtTitle.Text, txtDescription.Text, Convert.ToInt32(ddlGames.SelectedValue));
-            Response.Redirect("Ads.aspx");        
+            if (Security.IsClientAdmin())
+            {
+                AdsClass a = new AdsClass();
+                a.InsertAds(txtTitle.Text, txtDescription.Text, Convert.ToInt32(ddlGames.SelectedValue));
+                Response.Redirect("Ads.aspx");
+            }
+            else if (Security.IsClientLoggedIn())
+            {
+                AdsClass a = new AdsClass();
+                a.InsertAds(txtTitle.Text, txtDescription.Text, Convert.ToInt32(ddlGames.SelectedValue));
+                Response.Redirect("Ads.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
+                    
         }
-    }
+
+        protected void lbAdd_Click(object sender, EventArgs e)
+        {
+            if (Security.IsClientAdmin())
+            {
+                pnlGridAds.Visible = false;
+                pnlInsertAdd.Visible = true;
+            }
+            else if (Security.IsClientLoggedIn())
+            {
+                pnlGridAds.Visible = false;
+                pnlInsertAdd.Visible = true;
+            }
+            else
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
+        }
+      }
 }
