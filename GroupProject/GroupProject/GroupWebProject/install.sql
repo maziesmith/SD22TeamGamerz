@@ -56,6 +56,9 @@ CREATE TABLE tbClientGames
 	GameID INT FOREIGN KEY REFERENCES tbGames(GameID)
 )
 
+
+
+
 --NEED SOME INSERTS HERE FOR TESTING
 
 --select * from tbConsole
@@ -149,6 +152,10 @@ INSERT INTO tbGames(GameName,GameImage,GameRating,CategoryID,ConsoleID)values
   ('NBA 2k16','nba2k16.jpg',1,7,2),
   ('Soccer Man','SoccerMan.png',2,7,1)
 
+  INSERT INTO tbAds (AdsTitle, AdsDesc , GameID) VALUES
+('Selling PSP game','Msg me here 204 551-5555 for more info.',1),
+('Buying Bear in super Action','100$ or less contact me in my # 204 888 8888',2),
+('looking for psp game','50$ or less',16)
 INSERT INTO tbClientGames(ClientID, GameID) values
 	(8, 10),
 	(5, 9)
@@ -171,8 +178,8 @@ CREATE PROC spGetAds
 	@AdsID INT = NULL
 )
 AS BEGIN
-	SELECT * FROM tbAds
-	WHERE AdsID = ISNULL(@AdsID, AdsID)
+	SELECT tbAds.AdsTitle,tbAds.AdsDesc,tbAds.GameID FROM tbAds join tbGames on tbAds.GameID = tbGames.GameName
+	WHERE tbAds.AdsID = ISNULL(@AdsID, AdsID)
 END
 GO
 CREATE PROC spLogin
