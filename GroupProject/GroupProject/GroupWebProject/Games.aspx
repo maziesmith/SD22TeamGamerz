@@ -20,7 +20,7 @@
                             <td class="game-item-text">
                                 <asp:LinkButton ID="lbGameName" runat="server" CommandArgument='<%# Eval("GameID") %>'><%# Eval("GameName") %></asp:LinkButton>
                                 <br />
-                                <%# Eval("GameRating") %>
+                                Rating: <%# Eval("GameRating") %>/5
                             </td>
                             <td>
                                 <%# Eval("CategoryName") %>

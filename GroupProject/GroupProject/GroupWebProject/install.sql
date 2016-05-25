@@ -295,7 +295,8 @@ GO
 
 CREATE PROC spInsertConsole
   (
-    @ConsoleName    VARCHAR(MAX)
+    @ConsoleName    VARCHAR(MAX),
+	@ConsoleImage VARCHAR(MAX)
   )
 AS BEGIN
   IF EXISTS (SELECT * FROM tbConsole where ConsoleName = @ConsoleName)
@@ -304,8 +305,8 @@ AS BEGIN
     END
 ELSE
   BEGIN
-    INSERT INTO tbConsole (ConsoleName)
-    VALUES				        (@ConsoleName)
+    INSERT INTO tbConsole (ConsoleName, ConsoleImage)
+    VALUES				        (@ConsoleName, @ConsoleImage)
     SELECT SCOPE_IDENTITY() AS 'NewConsoleID'
   END
 END

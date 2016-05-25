@@ -1,9 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PostAd.aspx.cs" Inherits="GroupWebProject.PostAd" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
-
-    </div>
-    <div>
+    <div class="w3-row-padding">
+        <br />
+        <br />
         <table>
             <tr>
                 <td>

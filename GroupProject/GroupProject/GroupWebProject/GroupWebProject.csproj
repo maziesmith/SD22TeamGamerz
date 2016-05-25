@@ -193,6 +193,7 @@
     <Content Include="Images\Games\deathvsmonster.jpg" />
     <Content Include="Images\Games\diamondroyale.jpeg" />
     <Content Include="Images\Games\dodge.jpg" />
+    <Content Include="Images\Games\Doom_cover_art.jpg" />
     <Content Include="Images\Games\EarthTaken3.jpg" />
     <Content Include="Images\Games\familyfeud.jpg" />
     <Content Include="Images\Games\familyrestaurant.jpg" />
@@ -207,6 +208,7 @@
     <Content Include="Images\Games\medievalshark.jpg" />
     <Content Include="Images\Games\MonsterDenChronicles.png" />
     <Content Include="Images\Games\nba2k16.jpg" />
+    <Content Include="Images\Games\No_Image.png" />
     <Content Include="Images\Games\patchworkz.jpg" />
     <Content Include="Images\Games\raiderstookmydog.jpg" />
     <Content Include="Images\Games\sacraterraangelicnight.jpg" />

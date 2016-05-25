@@ -78,7 +78,8 @@ namespace GroupWebProject.Account
                 if (fuImagePath.HasFile)
                 {
                     string ImageName = Path.GetFileName(fuImagePath.FileName);
-                    fuImagePath.SaveAs(Server.MapPath("/Images/Consoles") + ImageName);
+                    string savePath = Server.MapPath("..") + "\\Images\\Consoles\\" + ImageName;
+                    fuImagePath.SaveAs(savePath);
                     GameConsole GC = new GameConsole();
                     GC.InsertConsole(tbConsole.Text, ImageName);
                     tbConsole.Text = "";

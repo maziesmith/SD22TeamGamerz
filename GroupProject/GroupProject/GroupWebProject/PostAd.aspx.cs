@@ -33,7 +33,21 @@ namespace GroupWebProject
 
         protected void btnList_Click(object sender, EventArgs e)
         {
+            Game insertGame = new Game();
+            string imageFileName;
+            if (fuGameImage.HasFile)
+            {
+                imageFileName = fuGameImage.FileName;
+                string savePath = Server.MapPath(".") + "\\Images\\Games\\" + imageFileName;
+                fuGameImage.SaveAs(savePath);
 
+            }
+            else
+            {
+                imageFileName = "No_Image.png";
+            }
+            string newGameID = insertGame.InsertGame(txtGameName.Text, imageFileName, ddlRating.SelectedItem.ToString(), Convert.ToInt32(ddlCategory.SelectedValue), Convert.ToInt32(ddlConsole.SelectedValue));
+            Response.Redirect("GamePage.aspx?game=" + newGameID);
         }
     }
 }

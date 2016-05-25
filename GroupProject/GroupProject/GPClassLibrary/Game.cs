@@ -159,5 +159,18 @@ namespace GPClassLibrary
 
             return listResults;
         }
+
+        public string InsertGame(string GameName, string GameImage, string GameRating, int CategoryID, int ConsoleID)
+        {
+            DAL d = new DAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            d.AddParam("GameName", GameName);
+            d.AddParam("GameImage", GameImage);
+            d.AddParam("GameRating", GameRating);
+            d.AddParam("CategoryID", CategoryID);
+            d.AddParam("ConsoleID", ConsoleID);
+            DataSet ds = d.ExecuteProcedure("spInsertGame");
+            string newGameID = ds.Tables[0].Rows[0]["NewGameID"].ToString();
+            return newGameID;
+        }
     }
 }
