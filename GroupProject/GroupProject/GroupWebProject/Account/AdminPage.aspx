@@ -24,7 +24,7 @@
         </table>
     </asp:Panel>
         </div>
-    <asp:Panel ID="pnlConsoles" Visible="false" runat="server">
+    <asp:Panel ID="pnlConsoles"  Visible="false" runat="server">
         <asp:GridView ID="gvConsoles" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="ConsoleID" AllowPaging="True" AllowSorting="True">
             <Columns>
                 <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"></asp:CommandField>
@@ -108,7 +108,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     </asp:Panel>
-    <asp:Panel ID="pnlAccounts" Visible="false" runat="server">
+    <asp:Panel ID="pnlAccounts" ScrollBars="Auto" Visible="false" runat="server">
         <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" DataKeyNames="ClientID" DataSourceID="SqlDataSource4" AllowPaging="True" AllowSorting="True">
             <Columns>
                 <asp:CommandField  ShowDeleteButton="True" ShowEditButton="True" ></asp:CommandField>
