@@ -49,6 +49,13 @@ CREATE TABLE tbAds
 	GameID		  INT FOREIGN KEY REFERENCES tbGames(GameID),
   )
 
+CREATE TABLE tbClientGames
+(
+	ClientGameID INT IDENTITY (1,1) PRIMARY KEY,
+	ClientID INT FOREIGN KEY REFERENCES tbClient(ClientID),
+	GameID INT FOREIGN KEY REFERENCES tbGame(GameID)
+)
+
 --NEED SOME INSERTS HERE FOR TESTING
 
 --select * from tbConsole
@@ -69,7 +76,9 @@ INSERT INTO tbClient(FirstName, LastName, Address,City,PostalCode,PhoneNumber,Us
   ('Jane', 'Doe', '123 Home Street','New York','55416','1555 555 5555',
    'JaneDoe','1234','Jane.Doe@Robertsoncollege.net', 0),
   ('Naruto', 'Uzumaki', '123 Konoha Street','Konoha','56453','1555 555 5555',
-   'naruto1','1234','IWannaBeTheHokage@Hokage.com', 0)
+   'naruto1','1234','IWannaBeTheHokage@Hokage.com', 0),
+   ('Char', 'Aznable', '333 Zeon Street', 'Side 3', '33333', '1333 333 333',
+   'redComet333', 'redcomet@zeon.com', 0)
 
 INSERT INTO  tbConsole(ConsoleName, ConsoleImage) VALUES
   ('PSP','PSP.jpg'),
