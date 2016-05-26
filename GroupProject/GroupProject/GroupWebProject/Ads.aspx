@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ads.aspx.cs" Inherits="GroupWebProject.Ads" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <br />
+
     <h2> Adverstisement</h2>
     <asp:Panel ID="pnlGridAds" runat="server">
      <asp:GridView ID="gvAds" runat="server">
@@ -27,7 +30,7 @@
         <div class ="form-group">
              <asp:Label runat="server" ID="lbDesc" CssClass="col-md-2 control-label">Description</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" Height="184px"></asp:TextBox>
              </div>
         </div>
 

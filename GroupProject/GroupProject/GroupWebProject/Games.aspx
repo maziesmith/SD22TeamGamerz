@@ -6,9 +6,7 @@
         <div class="jumbotron">
 
         </div>
-        <div class="game-sidebar">
-            <h3>THIS DOESN'T DO ANYTHING YET</h3>
-        </div>
+
         <div class="col-sm-8">
             <table class="game-list">
                 <asp:DataList ID="dlGames" RepeatColumns="1" runat="server" DataKeyField="GameID" OnItemCommand="dlGames_ItemCommand" >
@@ -33,4 +31,5 @@
             </table>
         </div>
     </div>
+
 </asp:Content>

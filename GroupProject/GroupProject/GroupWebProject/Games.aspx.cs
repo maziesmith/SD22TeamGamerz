@@ -32,8 +32,10 @@ namespace GroupWebProject
                             break;
                         default:
                             break;
+                           
                     }
                 }
+             
             }
             else
             {
@@ -48,8 +50,10 @@ namespace GroupWebProject
 
         protected void dlGames_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            
+          
+
             Response.Redirect("GamePage.aspx?game=" + e.CommandArgument.ToString());
         }
+
     }
 }

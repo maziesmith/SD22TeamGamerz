@@ -33,6 +33,7 @@ namespace GroupWebProject.Account
             btnMain.Visible = true;
             pnlConsoles.Visible = true;
             pnlAdmin.Visible = false;
+            pnlAds.Visible = false;
         }
 
         protected void btnGames_Click(object sender, EventArgs e)
@@ -40,6 +41,7 @@ namespace GroupWebProject.Account
             pnlGames.Visible = true;
             btnMain.Visible = true;
             pnlAdmin.Visible = false;
+            pnlAds.Visible = false;
         }
 
         protected void btnCategories_Click(object sender, EventArgs e)
@@ -47,6 +49,7 @@ namespace GroupWebProject.Account
             pnlCategories.Visible = true;
             btnMain.Visible = true;
             pnlAdmin.Visible = false;
+            pnlAds.Visible = false;
         }
 
         protected void btnAccounts_Click(object sender, EventArgs e)
@@ -54,6 +57,7 @@ namespace GroupWebProject.Account
             pnlAccounts.Visible = true;
             btnMain.Visible = true;
             pnlAdmin.Visible = false;
+            pnlAds.Visible = false;
         }
 
         protected void btnMain_Click(object sender, EventArgs e)
@@ -64,6 +68,7 @@ namespace GroupWebProject.Account
             pnlCategories.Visible = false;
             btnMain.Visible = false;
             pnlAdmin.Visible = true;
+            pnlAds.Visible = false;
         }
 
         protected void lbAdd_Click(object sender, EventArgs e)
@@ -93,5 +98,12 @@ namespace GroupWebProject.Account
                 loadConGridView();          
         }
     }
+
+        protected void btnAds_Click(object sender, EventArgs e)
+        {
+            btnMain.Visible = true;
+            pnlAdmin.Visible = false;
+            pnlAds.Visible = true;
+        }
     }
 }

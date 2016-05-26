@@ -20,11 +20,46 @@
                 <td>
                     <asp:Button ID="btnAccounts" href="#" class="button green" runat="server" OnClick="btnAccounts_Click" Text="Accounts" Height="42px" Width="159px" />
                 </td>          
+                <td>
+                    <asp:Button ID="btnAds" href="#" runat="server" class="button green" OnClick="btnAds_Click" Text="Ads" Height="42px" Width="159px" />
+                </td>
             </tr>
         </table>
+       
     </asp:Panel>
+       
           <asp:Button ID="btnMain" class="button green" runat="server" Visible="false" OnClick="btnMain_Click" Text="Menu" Height="42px" Width="159px"  />
         </div>
+      <asp:Panel ID="pnlAds" visible="false" runat="server">
+             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="AdsID" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True">
+                 <Columns>
+                     <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"></asp:CommandField>
+                     <asp:BoundField DataField="AdsID" HeaderText="AdsID" ReadOnly="True" InsertVisible="False" SortExpression="AdsID"></asp:BoundField>
+                     <asp:BoundField DataField="AdsTitle" HeaderText="AdsTitle" SortExpression="AdsTitle"></asp:BoundField>
+                     <asp:BoundField DataField="AdsDesc" HeaderText="AdsDesc" SortExpression="AdsDesc"></asp:BoundField>
+                     <asp:BoundField DataField="GameID" HeaderText="GameID" SortExpression="GameID"></asp:BoundField>
+                     <asp:BoundField DataField="ClientID" HeaderText="ClientID" SortExpression="ClientID"></asp:BoundField>
+                 </Columns>
+             </asp:GridView>
+             <asp:SqlDataSource runat="server" ID="SqlDataSource5" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' DeleteCommand="DELETE FROM [tbAds] WHERE [AdsID] = @AdsID" InsertCommand="INSERT INTO [tbAds] ([AdsTitle], [AdsDesc], [GameID], [ClientID]) VALUES (@AdsTitle, @AdsDesc, @GameID, @ClientID)" SelectCommand="SELECT * FROM [tbAds]" UpdateCommand="UPDATE [tbAds] SET [AdsTitle] = @AdsTitle, [AdsDesc] = @AdsDesc, [GameID] = @GameID, [ClientID] = @ClientID WHERE [AdsID] = @AdsID">
+                 <DeleteParameters>
+                     <asp:Parameter Name="AdsID" Type="Int32"></asp:Parameter>
+                 </DeleteParameters>
+                 <InsertParameters>
+                     <asp:Parameter Name="AdsTitle" Type="String"></asp:Parameter>
+                     <asp:Parameter Name="AdsDesc" Type="String"></asp:Parameter>
+                     <asp:Parameter Name="GameID" Type="Int32"></asp:Parameter>
+                     <asp:Parameter Name="ClientID" Type="Int32"></asp:Parameter>
+                 </InsertParameters>
+                 <UpdateParameters>
+                     <asp:Parameter Name="AdsTitle" Type="String"></asp:Parameter>
+                     <asp:Parameter Name="AdsDesc" Type="String"></asp:Parameter>
+                     <asp:Parameter Name="GameID" Type="Int32"></asp:Parameter>
+                     <asp:Parameter Name="ClientID" Type="Int32"></asp:Parameter>
+                     <asp:Parameter Name="AdsID" Type="Int32"></asp:Parameter>
+                 </UpdateParameters>
+             </asp:SqlDataSource>
+         </asp:Panel>
     <asp:Panel ID="pnlConsoles"  Visible="false" runat="server">
         <asp:GridView ID="gvConsoles" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="ConsoleID" AllowPaging="True" AllowSorting="True">
             <Columns>

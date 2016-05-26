@@ -15,6 +15,13 @@ namespace GroupWebProject
             string GameID = Request.QueryString["game"];        
             dlGame.DataSource = Game.GetGameByID(GameID);
             dlGame.DataBind();
+            btnBack.Visible = true;
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Games.aspx");
+            btnBack.Visible = false;
         }
     }
 }
