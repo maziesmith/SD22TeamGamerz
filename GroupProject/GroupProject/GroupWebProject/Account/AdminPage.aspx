@@ -31,7 +31,7 @@
                 <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"></asp:CommandField>
                 <asp:BoundField DataField="ConsoleID" HeaderText="ConsoleID" ReadOnly="True" InsertVisible="False" SortExpression="ConsoleID"></asp:BoundField>
                 <asp:BoundField DataField="ConsoleName" HeaderText="ConsoleName" SortExpression="ConsoleName"></asp:BoundField>
-                <asp:ImageField HeaderText="ConsoleImage" DataImageUrlField="ConsoleImage" ControlStyle-Width="100px" ControlStyle-Height="100px" DataImageUrlFormatString="Images/Consoles/{0}" SortExpression="ConsoleImage"></asp:ImageField>
+                <asp:ImageField HeaderText="ConsoleImage" DataImageUrlField="ConsoleImage" ControlStyle-Width="100px" ControlStyle-Height="100px" DataImageUrlFormatString="../Images/Consoles/{0}" ></asp:ImageField>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:DefaultConnection %>' SelectCommand="SELECT [ConsoleID], [ConsoleName], [ConsoleImage] FROM [tbConsole]"  DeleteCommand="DELETE FROM [tbConsole] WHERE [ConsoleID] = @ConsoleID" InsertCommand="INSERT INTO [tbConsole] ([ConsoleName], [ConsoleImage]) VALUES (@ConsoleName, @ConsoleImage)" UpdateCommand="UPDATE [tbConsole] SET [ConsoleName] = @ConsoleName, [ConsoleImage] = @ConsoleImage WHERE [ConsoleID] = @ConsoleID">
